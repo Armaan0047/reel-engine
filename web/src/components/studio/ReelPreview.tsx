@@ -28,6 +28,10 @@ export default function ReelPreview({
   );
   const completedReels = reels.filter((r) => r.status === "done");
 
+  // Derive display host from env for diagnostics panel
+  const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+  const DISPLAY_HOST = API_URL.replace("https://", "").replace("http://", "");
+
   // Custom Video Player States
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -391,7 +395,7 @@ export default function ReelPreview({
               <div className="border-t border-border-default/15 pt-4.5 grid grid-cols-2 gap-4">
                 <div>
                   <span className="text-[9px] font-mono text-text-tertiary block">Active Synthesis Host</span>
-                  <span className="text-[10px] font-sans font-bold text-text-secondary mt-0.5 block">Local Node // api_server:8000</span>
+                  <span className="text-[10px] font-sans font-bold text-text-secondary mt-0.5 block">{DISPLAY_HOST}</span>
                 </div>
                 <div>
                   <span className="text-[9px] font-mono text-text-tertiary block">VOX ducking master</span>

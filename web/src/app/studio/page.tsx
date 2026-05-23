@@ -66,8 +66,8 @@ export default function StudioPage() {
           }
         }
       } catch (err) {
-        console.error("Backend offline. Make sure api_server.py is running on port 8000", err);
-        setApiError("Backend Engine Offline // Launch api_server.py on Port 8000");
+        console.error("Backend offline:", API_URL, err);
+        setApiError(`Backend Engine Offline // Cannot reach ${API_URL}`);
       }
     }
     loadReels();
