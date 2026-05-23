@@ -57,7 +57,6 @@ export default function StudioPage() {
               thumbnailUrl: r.thumbnailUrl,
             }));
             setReels((prev) => {
-              // De-duplicate loaded items against existing polling items
               const existingIds = new Set(prev.map((p) => p.id));
               const filteredLoaded = loaded.filter((l) => !existingIds.has(l.id));
               return [...prev, ...filteredLoaded].sort((a, b) => b.timestamp - a.timestamp);
@@ -78,7 +77,6 @@ export default function StudioPage() {
     const activeJobs = reels.filter(
       (r) => r.status === "queued" || r.status === "generating" || r.status === "rendering"
     );
-
     if (activeJobs.length === 0) return;
 
     const interval = setInterval(async () => {
@@ -95,8 +93,6 @@ export default function StudioPage() {
                 const updated = jobMap.get(reel.id);
                 if (updated) {
                   const updatedStatus = updated.status as ReelJob["status"];
-                  
-                  // If status transition just completed, auto-select it if nothing else is playing
                   if (reel.status !== "done" && updatedStatus === "done") {
                     const completeReel: ReelJob = {
                       ...reel,
@@ -111,7 +107,6 @@ export default function StudioPage() {
                     setSelectedReel(completeReel);
                     return completeReel;
                   }
-
                   return {
                     ...reel,
                     status: updatedStatus,
@@ -183,10 +178,7 @@ export default function StudioPage() {
   };
 
   return (
-    <div className="flex h-screen overflow-hidden bg-surface-0 relative">
-      {/* Tactical layout guides (fine border lines) */}
-      <div className="absolute inset-0 grid-pattern opacity-10 pointer-events-none z-0" />
-
+    <div className="flex h-screen overflow-hidden bg-surface-0">
       {/* Sidebar */}
       <StudioSidebar
         open={sidebarOpen}
@@ -197,29 +189,30 @@ export default function StudioPage() {
       />
 
       {/* Main content */}
-      <div className="flex-1 flex flex-col relative z-10 min-w-0">
+      <div className="flex-1 flex flex-col min-w-0">
         <StudioTopbar
           onToggleSidebar={() => setSidebarOpen(!sidebarOpen)}
           sidebarOpen={sidebarOpen}
         />
 
-        {/* Backend offline telemetry alert */}
+        {/* Error banner */}
         {apiError && (
-          <div className="bg-accent-primary/10 border-b border-accent-primary/20 px-6 py-2.5 flex items-center justify-between text-[10px] font-mono text-accent-primary uppercase tracking-widest z-20">
+          <div className="bg-red/5 border-b border-red/15 px-5 py-2 flex items-center justify-between text-[10px] font-mono text-red uppercase tracking-wider">
             <div className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 bg-accent-primary rounded-full animate-pulse" />
+              <span className="w-1.5 h-1.5 bg-red rounded-full animate-pulse" />
               <span>{apiError}</span>
             </div>
-            <button 
-              onClick={() => setApiError(null)} 
-              className="hover:text-text-primary transition-colors cursor-pointer text-[9px] uppercase tracking-wider font-semibold font-mono"
+            <button
+              onClick={() => setApiError(null)}
+              className="hover:text-text-primary transition-colors cursor-pointer text-[9px] uppercase tracking-wider font-semibold"
             >
-              Acknowledge
+              Dismiss
             </button>
           </div>
         )}
 
-        <div className="flex-1 overflow-hidden flex">
+        {/* Content area */}
+        <div className="flex-1 overflow-hidden">
           <AnimatePresence mode="wait">
             {view === "generate" ? (
               <motion.div
@@ -227,16 +220,16 @@ export default function StudioPage() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                transition={{ duration: 0.2 }}
-                className="flex-1 flex overflow-hidden"
+                transition={{ duration: 0.15 }}
+                className="h-full flex"
               >
-                {/* Left: Generate controls */}
-                <div className="w-full lg:w-[420px] xl:w-[460px] flex-shrink-0 overflow-y-auto border-r border-border-default p-6 bg-surface-0">
+                {/* Left: Workspace params */}
+                <div className="w-[320px] xl:w-[360px] flex-shrink-0 overflow-y-auto border-r border-border-default p-5 bg-surface-0">
                   <GeneratePanel onGenerate={handleGenerate} />
                 </div>
 
-                {/* Right: Preview + active jobs */}
-                <div className="hidden lg:flex flex-1 flex-col overflow-y-auto p-6 bg-surface-0">
+                {/* Center + Right: Preview + Monitor + Bottom panels */}
+                <div className="flex-1 min-w-0 overflow-hidden">
                   <ReelPreview
                     reels={reels}
                     selectedReel={selectedReel}
@@ -250,8 +243,8 @@ export default function StudioPage() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                transition={{ duration: 0.2 }}
-                className="flex-1 overflow-y-auto p-6 bg-surface-0"
+                transition={{ duration: 0.15 }}
+                className="h-full overflow-y-auto p-6 bg-surface-0"
               >
                 <ReelHistory reels={reels} onSelect={(reel) => {
                   setSelectedReel(reel);
