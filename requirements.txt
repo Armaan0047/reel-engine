@@ -1,0 +1,6 @@
+# Core dependencies
+edge-tts
+imageio-ffmpeg
+
+# Premium voice (optional — set ELEVENLABS_API_KEY env var to enable)
+# elevenlabs

@@ -1,0 +1,68 @@
+[
+  {
+    "text": "THIS GENERATION IS",
+    "start": 0.1,
+    "end": 1.147,
+    "highlight": true
+  },
+  {
+    "text": "COOKED. AND I",
+    "start": 1.177,
+    "end": 2.223,
+    "highlight": true
+  },
+  {
+    "text": "MEAN THAT SERIOUSLY.",
+    "start": 2.253,
+    "end": 3.3,
+    "highlight": false
+  },
+  {
+    "text": "ATTENTION SPANS SHORTER",
+    "start": 3.33,
+    "end": 4.377,
+    "highlight": false
+  },
+  {
+    "text": "THAN GOLDFISH. EVERYONE",
+    "start": 4.407,
+    "end": 5.454,
+    "highlight": true
+  },
+  {
+    "text": "WANTS SUCCESS BUT",
+    "start": 5.484,
+    "end": 6.53,
+    "highlight": true
+  },
+  {
+    "text": "NOBODY CAN FOCUS",
+    "start": 6.56,
+    "end": 7.607,
+    "highlight": true
+  },
+  {
+    "text": "FOR TEN MINUTES.",
+    "start": 7.637,
+    "end": 8.684,
+    "highlight": false
+  },
+  {
+    "text": "YOU ARE COMPETING",
+    "start": 8.714,
+    "end": 9.761,
+    "highlight": false
+  },
+  {
+    "text": "AGAINST PEOPLE WHO",
+    "start": 9.791,
+    "end": 10.837,
+    "highlight": false
+  },
+  {
+    "text": "DELETED SOCIAL MEDIA.",
+    "start": 10.867,
+    "end": 11.914,
+    "highlight": false
+  }
+]

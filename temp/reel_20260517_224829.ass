@@ -1,0 +1,32 @@
+[Script Info]
+Title: AI Reel Captions - Viral Style
+ScriptType: v4.00+
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+YCbCr Matrix: TV.709
+PlayResX: 1080
+PlayResY: 1920
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Arial Black,78,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,3,0,1,6,3,5,40,40,200,1
+Style: Hook,Arial Black,90,&H0000FFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,3,0,1,7,3,5,40,40,200,1
+Style: Highlight,Arial Black,82,&H0000DDFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,3,0,1,6,3,5,40,40,200,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.10,0:00:01.84,Hook,,0,0,0,,{\fad(49,20)\t(0,44,\fscx117\fscy117)\t(44,88,\fscx100\fscy100)}LISTEN CAREFULLY.
+Dialogue: 0,0:00:01.79,0:00:03.69,Hook,,0,0,0,,{\fad(49,20)\t(0,44,\fscx117\fscy117)\t(44,88,\fscx100\fscy100)}AI IS EVOLVING FASTER
+Dialogue: 0,0:00:03.69,0:00:05.11,Highlight,,0,0,0,,{\fad(49,20)\t(0,44,\fscx117\fscy117)\t(44,88,\fscx100\fscy100)}THAN ANYONE PREDICTED.
+Dialogue: 0,0:00:05.11,0:00:06.72,Default,,0,0,0,,{\fad(49,20)\t(0,44,\fscx117\fscy117)\t(44,88,\fscx100\fscy100)}WHAT USED TO TAKE
+Dialogue: 0,0:00:06.72,0:00:08.33,Highlight,,0,0,0,,{\fad(49,20)\t(0,44,\fscx117\fscy117)\t(44,88,\fscx100\fscy100)}HUMANS HOURS, NOW TAKES
+Dialogue: 0,0:00:08.33,0:00:08.73,Highlight,,0,0,0,,{\fad(49,20)\t(0,44,\fscx117\fscy117)\t(44,88,\fscx100\fscy100)}SECONDS.
+Dialogue: 0,0:00:08.73,0:00:10.65,Default,,0,0,0,,{\fad(49,20)\t(0,44,\fscx117\fscy117)\t(44,88,\fscx100\fscy100)}AND THE CRAZIEST PART?
+Dialogue: 0,0:00:10.65,0:00:12.26,Default,,0,0,0,,{\fad(49,20)\t(0,44,\fscx117\fscy117)\t(44,88,\fscx100\fscy100)}THIS IS JUST THE
+Dialogue: 0,0:00:12.26,0:00:12.67,Highlight,,0,0,0,,{\fad(49,20)\t(0,44,\fscx117\fscy117)\t(44,88,\fscx100\fscy100)}BEGINNING.
+Dialogue: 0,0:00:12.67,0:00:13.91,Default,,0,0,0,,{\fad(49,20)\t(0,44,\fscx117\fscy117)\t(44,88,\fscx100\fscy100)}THE TOOLS BEING BUILT
+Dialogue: 0,0:00:13.91,0:00:15.16,Highlight,,0,0,0,,{\fad(49,20)\t(0,44,\fscx117\fscy117)\t(44,88,\fscx100\fscy100)}RIGHT NOW WILL CHANGE
+Dialogue: 0,0:00:15.16,0:00:16.40,Highlight,,0,0,0,,{\fad(49,20)\t(0,44,\fscx117\fscy117)\t(44,88,\fscx100\fscy100)}EVERYTHING YOU KNOW ABOUT
+Dialogue: 0,0:00:16.40,0:00:16.71,Default,,0,0,0,,{\fad(49,20)\t(0,44,\fscx117\fscy117)\t(44,88,\fscx100\fscy100)}WORK.
+Dialogue: 0,0:00:16.71,0:00:18.37,Default,,0,0,0,,{\fad(49,20)\t(0,44,\fscx117\fscy117)\t(44,88,\fscx100\fscy100)}IF YOU'RE NOT PAYING
+Dialogue: 0,0:00:18.37,0:00:20.03,Highlight,,0,0,0,,{\fad(49,20)\t(0,44,\fscx117\fscy117)\t(44,88,\fscx100\fscy100)}ATTENTION, YOU'RE ALREADY BEHIND.

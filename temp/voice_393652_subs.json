@@ -1,0 +1,92 @@
+[
+  {
+    "text": "YOUR FUTURE SELF",
+    "start": 0.1,
+    "end": 1.13,
+    "highlight": true
+  },
+  {
+    "text": "IS WATCHING YOU",
+    "start": 1.13,
+    "end": 2.159,
+    "highlight": false
+  },
+  {
+    "text": "RIGHT NOW THROUGH",
+    "start": 2.159,
+    "end": 3.189,
+    "highlight": true
+  },
+  {
+    "text": "MEMORIES.",
+    "start": 3.189,
+    "end": 3.532,
+    "highlight": false
+  },
+  {
+    "text": "MAKE SURE YOU",
+    "start": 3.482,
+    "end": 4.313,
+    "highlight": false
+  },
+  {
+    "text": "ARE GIVING THEM",
+    "start": 4.313,
+    "end": 5.144,
+    "highlight": false
+  },
+  {
+    "text": "SOMETHING TO BE",
+    "start": 5.144,
+    "end": 5.975,
+    "highlight": false
+  },
+  {
+    "text": "PROUD OF.",
+    "start": 5.975,
+    "end": 6.529,
+    "highlight": false
+  },
+  {
+    "text": "EVERY HOUR YOU",
+    "start": 6.529,
+    "end": 7.476,
+    "highlight": false
+  },
+  {
+    "text": "WASTE IS AN",
+    "start": 7.476,
+    "end": 8.422,
+    "highlight": false
+  },
+  {
+    "text": "HOUR YOUR FUTURE",
+    "start": 8.422,
+    "end": 9.369,
+    "highlight": true
+  },
+  {
+    "text": "SELF NEEDED.",
+    "start": 9.369,
+    "end": 10.0,
+    "highlight": false
+  },
+  {
+    "text": "THE GRIND DOES",
+    "start": 10.0,
+    "end": 11.179,
+    "highlight": true
+  },
+  {
+    "text": "NOT WAIT.",
+    "start": 11.179,
+    "end": 11.964,
+    "highlight": true
+  },
+  {
+    "text": "NEITHER SHOULD YOU.",
+    "start": 11.964,
+    "end": 13.571,
+    "highlight": false
+  }
+]

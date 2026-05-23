@@ -1,0 +1,27 @@
+[Script Info]
+Title: AI Reel Captions
+ScriptType: v4.00+
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+YCbCr Matrix: TV.709
+PlayResX: 1080
+PlayResY: 1920
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Arial Black,64,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,2,0,1,4,2,2,40,40,120,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.10,0:00:01.73,Default,,0,0,0,,{\fad(150,100)\t(0,100,\fscx110\fscy110)\t(100,200,\fscx100\fscy100)}HERE'S SOMETHING THEY DON'T TEACH
+Dialogue: 0,0:00:01.73,0:00:02.72,Default,,0,0,0,,{\fad(150,100)\t(0,100,\fscx110\fscy110)\t(100,200,\fscx100\fscy100)}YOU IN SCHOOL.
+Dialogue: 0,0:00:02.67,0:00:04.81,Default,,0,0,0,,{\fad(150,100)\t(0,100,\fscx110\fscy110)\t(100,200,\fscx100\fscy100)}AI ISN'T COMING TO REPLACE
+Dialogue: 0,0:00:04.81,0:00:05.23,Default,,0,0,0,,{\fad(150,100)\t(0,100,\fscx110\fscy110)\t(100,200,\fscx100\fscy100)}YOU.
+Dialogue: 0,0:00:05.23,0:00:07.00,Default,,0,0,0,,{\fad(150,100)\t(0,100,\fscx110\fscy110)\t(100,200,\fscx100\fscy100)}IT'S ALREADY HERE.
+Dialogue: 0,0:00:07.00,0:00:08.49,Default,,0,0,0,,{\fad(150,100)\t(0,100,\fscx110\fscy110)\t(100,200,\fscx100\fscy100)}THE PEOPLE WHO LEARN TO
+Dialogue: 0,0:00:08.49,0:00:09.69,Default,,0,0,0,,{\fad(150,100)\t(0,100,\fscx110\fscy110)\t(100,200,\fscx100\fscy100)}USE IT WILL THRIVE.
+Dialogue: 0,0:00:09.69,0:00:11.37,Default,,0,0,0,,{\fad(150,100)\t(0,100,\fscx110\fscy110)\t(100,200,\fscx100\fscy100)}THE ONES WHO IGNORE IT
+Dialogue: 0,0:00:11.37,0:00:12.04,Default,,0,0,0,,{\fad(150,100)\t(0,100,\fscx110\fscy110)\t(100,200,\fscx100\fscy100)}WILL STRUGGLE.
+Dialogue: 0,0:00:12.04,0:00:13.95,Default,,0,0,0,,{\fad(150,100)\t(0,100,\fscx110\fscy110)\t(100,200,\fscx100\fscy100)}THIS ISN'T A PREDICTION.
+Dialogue: 0,0:00:13.95,0:00:15.51,Default,,0,0,0,,{\fad(150,100)\t(0,100,\fscx110\fscy110)\t(100,200,\fscx100\fscy100)}IT'S A FACT.
+Dialogue: 0,0:00:15.51,0:00:17.22,Default,,0,0,0,,{\fad(150,100)\t(0,100,\fscx110\fscy110)\t(100,200,\fscx100\fscy100)}CHOOSE WISELY.

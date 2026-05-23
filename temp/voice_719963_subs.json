@@ -1,0 +1,74 @@
+[
+  {
+    "text": "A SIGMA",
+    "start": 0.1,
+    "end": 1.136,
+    "highlight": false
+  },
+  {
+    "text": "DOES",
+    "start": 1.166,
+    "end": 1.684,
+    "highlight": false
+  },
+  {
+    "text": "NOT FLEX.",
+    "start": 1.714,
+    "end": 2.75,
+    "highlight": false
+  },
+  {
+    "text": "A SIGMA",
+    "start": 2.78,
+    "end": 3.815,
+    "highlight": false
+  },
+  {
+    "text": "LETS RESULTS SPEAK.",
+    "start": 3.845,
+    "end": 5.399,
+    "highlight": false
+  },
+  {
+    "text": "THE PENTHOUSE. THE",
+    "start": 5.429,
+    "end": 6.983,
+    "highlight": true
+  },
+  {
+    "text": "WATCH. THE PORTFOLIO.",
+    "start": 7.013,
+    "end": 8.566,
+    "highlight": true
+  },
+  {
+    "text": "ALL BUILT IN",
+    "start": 8.596,
+    "end": 10.15,
+    "highlight": false
+  },
+  {
+    "text": "SILENCE WHILE EVERYONE",
+    "start": 10.18,
+    "end": 11.734,
+    "highlight": true
+  },
+  {
+    "text": "WAS BUSY BEING",
+    "start": 11.764,
+    "end": 13.318,
+    "highlight": false
+  },
+  {
+    "text": "LOUD. DISCIPLINE PLUS",
+    "start": 13.348,
+    "end": 14.901,
+    "highlight": true
+  },
+  {
+    "text": "PATIENCE EQUALS WEALTH.",
+    "start": 14.931,
+    "end": 16.485,
+    "highlight": true
+  }
+]

@@ -1,0 +1,80 @@
+[
+  {
+    "text": "THE SYSTEM",
+    "start": 0.1,
+    "end": 1.103,
+    "highlight": true
+  },
+  {
+    "text": "WAS",
+    "start": 1.133,
+    "end": 1.635,
+    "highlight": false
+  },
+  {
+    "text": "DESIGNED",
+    "start": 1.665,
+    "end": 2.167,
+    "highlight": true
+  },
+  {
+    "text": "TO KEEP",
+    "start": 2.197,
+    "end": 3.2,
+    "highlight": false
+  },
+  {
+    "text": "YOU BUSY. WHILE",
+    "start": 3.23,
+    "end": 4.735,
+    "highlight": false
+  },
+  {
+    "text": "YOU SCROLL AI",
+    "start": 4.765,
+    "end": 6.271,
+    "highlight": true
+  },
+  {
+    "text": "IS LEARNING EVERYTHING.",
+    "start": 6.301,
+    "end": 7.806,
+    "highlight": true
+  },
+  {
+    "text": "IT WRITES CODE.",
+    "start": 7.836,
+    "end": 9.341,
+    "highlight": true
+  },
+  {
+    "text": "CREATES ART. BUILDS",
+    "start": 9.371,
+    "end": 10.876,
+    "highlight": false
+  },
+  {
+    "text": "COMPANIES. AND IT",
+    "start": 10.906,
+    "end": 12.411,
+    "highlight": false
+  },
+  {
+    "text": "NEVER SLEEPS. WAKE",
+    "start": 12.441,
+    "end": 13.946,
+    "highlight": true
+  },
+  {
+    "text": "UP BEFORE IT'S",
+    "start": 13.976,
+    "end": 15.482,
+    "highlight": false
+  },
+  {
+    "text": "TOO LATE.",
+    "start": 15.512,
+    "end": 16.515,
+    "highlight": false
+  }
+]

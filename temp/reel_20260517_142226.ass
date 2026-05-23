@@ -1,0 +1,26 @@
+[Script Info]
+Title: AI Reel Captions
+ScriptType: v4.00+
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+YCbCr Matrix: TV.709
+PlayResX: 1080
+PlayResY: 1920
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Arial Black,64,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,2,0,1,4,2,2,40,40,120,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.10,0:00:01.70,Default,,0,0,0,,{\fad(150,100)\t(0,100,\fscx110\fscy110)\t(100,200,\fscx100\fscy100)}YOU WON'T BELIEVE WHAT AI
+Dialogue: 0,0:00:01.70,0:00:02.66,Default,,0,0,0,,{\fad(150,100)\t(0,100,\fscx110\fscy110)\t(100,200,\fscx100\fscy100)}CAN DO NOW.
+Dialogue: 0,0:00:02.61,0:00:05.10,Default,,0,0,0,,{\fad(150,100)\t(0,100,\fscx110\fscy110)\t(100,200,\fscx100\fscy100)}IT CAN ANALYZE DATA, WRITE
+Dialogue: 0,0:00:05.10,0:00:07.60,Default,,0,0,0,,{\fad(150,100)\t(0,100,\fscx110\fscy110)\t(100,200,\fscx100\fscy100)}ENTIRE REPORTS, DESIGN GRAPHICS, AND
+Dialogue: 0,0:00:07.60,0:00:08.60,Default,,0,0,0,,{\fad(150,100)\t(0,100,\fscx110\fscy110)\t(100,200,\fscx100\fscy100)}AUTOMATE WORKFLOWS.
+Dialogue: 0,0:00:08.60,0:00:10.50,Default,,0,0,0,,{\fad(150,100)\t(0,100,\fscx110\fscy110)\t(100,200,\fscx100\fscy100)}ALL IN REAL TIME.
+Dialogue: 0,0:00:10.50,0:00:13.22,Default,,0,0,0,,{\fad(150,100)\t(0,100,\fscx110\fscy110)\t(100,200,\fscx100\fscy100)}NO BREAKS, NO SLEEP, NO
+Dialogue: 0,0:00:13.22,0:00:13.77,Default,,0,0,0,,{\fad(150,100)\t(0,100,\fscx110\fscy110)\t(100,200,\fscx100\fscy100)}ERRORS.
+Dialogue: 0,0:00:13.77,0:00:15.81,Default,,0,0,0,,{\fad(150,100)\t(0,100,\fscx110\fscy110)\t(100,200,\fscx100\fscy100)}THIS TECHNOLOGY IS REWRITING THE
+Dialogue: 0,0:00:15.81,0:00:17.44,Default,,0,0,0,,{\fad(150,100)\t(0,100,\fscx110\fscy110)\t(100,200,\fscx100\fscy100)}RULES OF EVERY INDUSTRY.
+Dialogue: 0,0:00:17.44,0:00:19.54,Default,,0,0,0,,{\fad(150,100)\t(0,100,\fscx110\fscy110)\t(100,200,\fscx100\fscy100)}AND IT'S ONLY GETTING STARTED.

@@ -1,0 +1,30 @@
+[Script Info]
+Title: AI Reel Captions
+ScriptType: v4.00+
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+YCbCr Matrix: TV.709
+PlayResX: 1080
+PlayResY: 1920
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Arial Black,82,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,3,0,1,7,3,5,40,40,180,1
+Style: Hook,Arial Black,96,&H0000FFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,4,0,1,9,4,5,40,40,180,1
+Style: Highlight,Arial Black,88,&H0000DDFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,3,0,1,7,3,5,40,40,180,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.10,0:00:01.34,Hook,,0,0,0,,{\fad(112,86)\t(0,130,\fscx109\fscy109)\t(130,260,\fscx100\fscy100)}AI JUST DID
+Dialogue: 0,0:00:01.37,0:00:02.61,Hook,,0,0,0,,{\fad(112,86)\t(0,130,\fscx109\fscy109)\t(130,260,\fscx100\fscy100)}IN FIVE SECONDS
+Dialogue: 0,0:00:02.64,0:00:03.88,Default,,0,0,0,,{\fad(112,86)\t(0,130,\fscx109\fscy109)\t(130,260,\fscx100\fscy100)}WHAT TOOK A
+Dialogue: 0,0:00:03.91,0:00:05.15,Default,,0,0,0,,{\fad(112,86)\t(0,130,\fscx109\fscy109)\t(130,260,\fscx100\fscy100)}TEAM TWO WEEKS.
+Dialogue: 0,0:00:05.18,0:00:06.42,Default,,0,0,0,,{\fad(112,86)\t(0,130,\fscx109\fscy109)\t(130,260,\fscx100\fscy100)}PROGRAMMERS ARE SCARED.
+Dialogue: 0,0:00:06.45,0:00:07.69,Default,,0,0,0,,{\fad(112,86)\t(0,130,\fscx109\fscy109)\t(130,260,\fscx100\fscy100)}DESIGNERS ARE WORRIED.
+Dialogue: 0,0:00:07.72,0:00:08.96,Default,,0,0,0,,{\fad(112,86)\t(0,130,\fscx109\fscy109)\t(130,260,\fscx100\fscy100)}WRITERS ARE PANICKING.
+Dialogue: 0,0:00:08.99,0:00:10.23,Default,,0,0,0,,{\fad(112,86)\t(0,130,\fscx109\fscy109)\t(130,260,\fscx100\fscy100)}BUT HERE IS
+Dialogue: 0,0:00:10.26,0:00:11.50,Highlight,,0,0,0,,{\fad(112,86)\t(0,130,\fscx109\fscy109)\t(130,260,\fscx100\fscy100)}THE TRUTH NOBODY
+Dialogue: 0,0:00:11.53,0:00:12.77,Default,,0,0,0,,{\fad(112,86)\t(0,130,\fscx109\fscy109)\t(130,260,\fscx100\fscy100)}WANTS TO HEAR.
+Dialogue: 0,0:00:12.80,0:00:14.04,Default,,0,0,0,,{\fad(112,86)\t(0,130,\fscx109\fscy109)\t(130,260,\fscx100\fscy100)}THE ONES WHO
+Dialogue: 0,0:00:14.07,0:00:15.31,Highlight,,0,0,0,,{\fad(112,86)\t(0,130,\fscx109\fscy109)\t(130,260,\fscx100\fscy100)}LEARN AI WILL
+Dialogue: 0,0:00:15.34,0:00:16.17,Highlight,,0,0,0,,{\fad(112,86)\t(0,130,\fscx109\fscy109)\t(130,260,\fscx100\fscy100)}CONTROL EVERYTHING.

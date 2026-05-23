@@ -1,0 +1,92 @@
+[
+  {
+    "text": "SMART PEOPLE ARE",
+    "start": 0.1,
+    "end": 1.255,
+    "highlight": false
+  },
+  {
+    "text": "LEAVING THE RAT",
+    "start": 1.255,
+    "end": 2.41,
+    "highlight": true
+  },
+  {
+    "text": "RACE.",
+    "start": 2.41,
+    "end": 2.796,
+    "highlight": true
+  },
+  {
+    "text": "THEY REALIZED WORKING",
+    "start": 2.746,
+    "end": 3.877,
+    "highlight": false
+  },
+  {
+    "text": "NINE TO FIVE",
+    "start": 3.877,
+    "end": 5.009,
+    "highlight": false
+  },
+  {
+    "text": "MAKES SOMEONE ELSE",
+    "start": 5.009,
+    "end": 6.141,
+    "highlight": false
+  },
+  {
+    "text": "RICH.",
+    "start": 6.141,
+    "end": 6.518,
+    "highlight": true
+  },
+  {
+    "text": "YOUR TIME IS",
+    "start": 6.518,
+    "end": 7.637,
+    "highlight": false
+  },
+  {
+    "text": "BEING TRADED FOR",
+    "start": 7.637,
+    "end": 8.756,
+    "highlight": false
+  },
+  {
+    "text": "PENNIES.",
+    "start": 8.756,
+    "end": 9.129,
+    "highlight": false
+  },
+  {
+    "text": "THE SYSTEM WAS",
+    "start": 9.129,
+    "end": 10.028,
+    "highlight": true
+  },
+  {
+    "text": "DESIGNED TO KEEP",
+    "start": 10.028,
+    "end": 10.927,
+    "highlight": true
+  },
+  {
+    "text": "YOU JUST COMFORTABLE",
+    "start": 10.927,
+    "end": 11.826,
+    "highlight": false
+  },
+  {
+    "text": "ENOUGH TO NEVER",
+    "start": 11.826,
+    "end": 12.725,
+    "highlight": true
+  },
+  {
+    "text": "LEAVE.",
+    "start": 12.725,
+    "end": 13.025,
+    "highlight": false
+  }
+]

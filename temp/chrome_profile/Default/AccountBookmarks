@@ -1,0 +1,48 @@
+{
+   "checksum": "fabbf37bf05f19a6cffee6c85511b811",
+   "roots": {
+      "bookmark_bar": {
+         "children": [  ],
+         "date_added": "13423512090099292",
+         "date_last_used": "0",
+         "date_modified": "0",
+         "guid": "0bc5d13f-2cba-5d74-951f-3f233fe6c908",
+         "id": "5",
+         "name": "Bookmarks bar",
+         "type": "folder"
+      },
+      "other": {
+         "children": [ {
+            "date_added": "13419771702822872",
+            "date_last_used": "0",
+            "guid": "746754ca-c806-4043-9af6-13520b7c04bb",
+            "id": "8",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "Slobos-AFK-Aternos-Bot-1 ・ Web Service ・ Render Dashboard",
+            "type": "url",
+            "url": "https://dashboard.render.com/web/srv-d78d5qbuibrs73bldud0/deploys/dep-d78d5qjuibrs73blduqg?r=2026-04-04%4008%3A58%3A22%7E2026-04-04%4009%3A01%3A14"
+         } ],
+         "date_added": "13423512090099292",
+         "date_last_used": "0",
+         "date_modified": "13419771702822872",
+         "guid": "82b081ec-3dd3-529c-8475-ab6c344590dd",
+         "id": "6",
+         "name": "Other bookmarks",
+         "type": "folder"
+      },
+      "synced": {
+         "children": [  ],
+         "date_added": "13423512090099292",
+         "date_last_used": "0",
+         "date_modified": "0",
+         "guid": "4cf2e351-0e85-532b-bb37-df045d8f8d0f",
+         "id": "7",
+         "name": "Mobile bookmarks",
+         "type": "folder"
+      }
+   },
+   "sync_metadata": "CuABCr8BCIiBAhK4ASAAkgGjAQqgAQoOY2hyb21lX3N5bmNfYm0SBTUxIWJtGhIJTGhzrQZSBgARTGhzrQZSBgAiNAnfS1StBlIGABADGU+eue8vfumUIAEqHDUxIWJtL2ZkOjkxNjM3MjM1NTk0Njg4OTMxNjEiNAnfS1StBlIGABADGU+eue8vfumUIAEqHDUxIWJtL2ZkOjkxNjM3MjM1NTk0Njg4OTMxNjEp+IR1rQZSBgDqAQwInfKn0AYQyLePiAISACoYL1d2MVlJdGhOZE0vSWtVY2YxajJoZz09SAMS6wEICBLmAQocUlJrVmpMRXJldmVvK0dzZXVKdE8vdThDa1dVPRJmWjpBRHF0QVp4VlRMSkVFd0RqWm5sYis5bjRPNHlXa29XdXJzVkI1aXpDUi9ET01RVmk5c3BjVVVwK1JLMDNBTkdINlFZRmFUcXFKNklrS1V2dDZubFM2blFjQXdZeG9vQlJFQT09GAAgACgAMPjtnbCN4ZMDOKiMjcDVM0CojI3A1TNKHEYyeDdDUXpIYitFSzljY1lrODdBZVdRVEF2Zz1aHiIcS3NqY0puYVBzY3czaXRTaHcyem1lRU44bWxNPWU5+jjTEsMBCAYSvgEKHFljU1RvbnZFU1B3cUNzNEwyY3JWaHY2OEw5OD0SZlo6QURxdEFad3l5NVBUMnYyT0tOZStBVlBtUXVZcXl3YlFDOXBRU1BCbHVFM1FyWFpqWTc4dEZqR0RtdDMvcXJjL3NNeTdUVWc2b09QYVFDVEZRSFBpV2NtdGJvdVJuWm1acUE9PRgAIAAoADCCkZGQlc2TAzgAQABKHG9QVmtod0JSYlY2NUtDV1IyK0lPTkhXb091OD1aAGUAAAAAEsMBCAcSvgEKHG5qZ0R1ODhlQ3J2WHA4NnBEN2ZIR2NxRnA4OD0SZlo6QURxdEFaeGRiWUJTZG1kS29ESEZFbzZiNUpWbm1EVkJpamY0SHA4OUR6aTE2NThidm5OY1ZkVGpFSUZ4QUtzd1VjMENJS2JGSEFLeDU3M0Q0SUxYWXVnaXZqSjNudjd1TlE9PRgAIAAoADCCkZGQlc2TAzgAQABKHHl6TkIwMWNuNTRBN2NSVTB1VCsvUGdtVHRVbz1aAGUAAAAAEqsBCAUSpgEKHHl4Si82ZnZrZWNyN2twNUVRekI0dFdMcGRiRT0STlo6QURxdEFad1NpKzZzNHMyeFVoWDJ0UXFxcjV6cEU2NmNEaDdwQXZWRHBOTEowTXo3RUpIRWZVd2J3akl1S2dhQmxrbHpaYk9pSEhRShgAIAAoADCCkZGQlc2TAzgAQABKHGFSQ1dMZ2hGOWI1SW5xS0lEdnVKL2p2UWtGYz1aAGUAAAAAMAE4AA==",
+   "version": 1
+}

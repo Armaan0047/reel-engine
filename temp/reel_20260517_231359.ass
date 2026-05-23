@@ -1,0 +1,33 @@
+[Script Info]
+Title: AI Reel Captions
+ScriptType: v4.00+
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+YCbCr Matrix: TV.709
+PlayResX: 1080
+PlayResY: 1920
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Arial Black,82,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,3,0,1,7,3,5,40,40,180,1
+Style: Hook,Arial Black,96,&H0000FFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,4,0,1,9,4,5,40,40,180,1
+Style: Highlight,Arial Black,88,&H0000DDFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,3,0,1,7,3,5,40,40,180,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.10,0:00:01.03,Hook,,0,0,0,,{\fad(21,10)\t(0,38,\fscx140\fscy140)\t(38,76,\fscx100\fscy100)}THERE ARE WEBSITES
+Dialogue: 0,0:00:01.03,0:00:01.96,Hook,,0,0,0,,{\fad(21,10)\t(0,38,\fscx140\fscy140)\t(38,76,\fscx100\fscy100)}ON THE DARK
+Dialogue: 0,0:00:01.96,0:00:02.90,Default,,0,0,0,,{\fad(21,10)\t(0,38,\fscx140\fscy140)\t(38,76,\fscx100\fscy100)}WEB THAT SELL
+Dialogue: 0,0:00:02.90,0:00:03.83,Default,,0,0,0,,{\fad(21,10)\t(0,38,\fscx140\fscy140)\t(38,76,\fscx100\fscy100)}PERSONAL DATA FOR
+Dialogue: 0,0:00:03.83,0:00:04.45,Default,,0,0,0,,{\fad(21,10)\t(0,38,\fscx140\fscy140)\t(38,76,\fscx100\fscy100)}FIVE DOLLARS.
+Dialogue: 0,0:00:04.40,0:00:05.76,Default,,0,0,0,,{\fad(21,10)\t(0,38,\fscx140\fscy140)\t(38,76,\fscx100\fscy100)}YOUR EMAIL, YOUR
+Dialogue: 0,0:00:05.76,0:00:07.12,Default,,0,0,0,,{\fad(21,10)\t(0,38,\fscx140\fscy140)\t(38,76,\fscx100\fscy100)}ADDRESS, YOUR PHONE
+Dialogue: 0,0:00:07.12,0:00:07.57,Default,,0,0,0,,{\fad(21,10)\t(0,38,\fscx140\fscy140)\t(38,76,\fscx100\fscy100)}NUMBER.
+Dialogue: 0,0:00:07.57,0:00:09.09,Default,,0,0,0,,{\fad(21,10)\t(0,38,\fscx140\fscy140)\t(38,76,\fscx100\fscy100)}PRIVACY DOES NOT
+Dialogue: 0,0:00:09.09,0:00:10.11,Default,,0,0,0,,{\fad(21,10)\t(0,38,\fscx140\fscy140)\t(38,76,\fscx100\fscy100)}EXIST ANYMORE.
+Dialogue: 0,0:00:10.11,0:00:11.35,Default,,0,0,0,,{\fad(21,10)\t(0,38,\fscx140\fscy140)\t(38,76,\fscx100\fscy100)}IT IS AN
+Dialogue: 0,0:00:11.35,0:00:11.77,Default,,0,0,0,,{\fad(21,10)\t(0,38,\fscx140\fscy140)\t(38,76,\fscx100\fscy100)}ILLUSION.
+Dialogue: 0,0:00:11.77,0:00:12.66,Default,,0,0,0,,{\fad(21,10)\t(0,38,\fscx140\fscy140)\t(38,76,\fscx100\fscy100)}THE REAL QUESTION
+Dialogue: 0,0:00:12.66,0:00:13.56,Default,,0,0,0,,{\fad(21,10)\t(0,38,\fscx140\fscy140)\t(38,76,\fscx100\fscy100)}IS WHO IS
+Dialogue: 0,0:00:13.56,0:00:14.45,Default,,0,0,0,,{\fad(21,10)\t(0,38,\fscx140\fscy140)\t(38,76,\fscx100\fscy100)}WATCHING YOU RIGHT
+Dialogue: 0,0:00:14.45,0:00:14.75,Highlight,,0,0,0,,{\fad(21,10)\t(0,38,\fscx140\fscy140)\t(38,76,\fscx100\fscy100)}NOW.

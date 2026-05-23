@@ -1,0 +1,74 @@
+[
+  {
+    "text": "THEY",
+    "start": 0.1,
+    "end": 0.58,
+    "highlight": false
+  },
+  {
+    "text": "PROGRAMMED YOU",
+    "start": 0.61,
+    "end": 1.57,
+    "highlight": true
+  },
+  {
+    "text": "TO",
+    "start": 1.6,
+    "end": 2.08,
+    "highlight": false
+  },
+  {
+    "text": "BE",
+    "start": 2.11,
+    "end": 2.59,
+    "highlight": false
+  },
+  {
+    "text": "AVERAGE. SCHOOL",
+    "start": 2.62,
+    "end": 3.579,
+    "highlight": true
+  },
+  {
+    "text": "TAUGHT YOU TO",
+    "start": 3.609,
+    "end": 5.049,
+    "highlight": false
+  },
+  {
+    "text": "FOLLOW RULES NOT",
+    "start": 5.079,
+    "end": 6.519,
+    "highlight": false
+  },
+  {
+    "text": "BREAK THEM. SOCIETY",
+    "start": 6.549,
+    "end": 7.989,
+    "highlight": false
+  },
+  {
+    "text": "REWARDS OBEDIENCE, NOT",
+    "start": 8.019,
+    "end": 9.459,
+    "highlight": false
+  },
+  {
+    "text": "INTELLIGENCE. THE MOMENT",
+    "start": 9.489,
+    "end": 10.928,
+    "highlight": false
+  },
+  {
+    "text": "YOU REALIZE THIS",
+    "start": 10.958,
+    "end": 12.398,
+    "highlight": false
+  },
+  {
+    "text": "EVERYTHING CHANGES.",
+    "start": 12.428,
+    "end": 13.388,
+    "highlight": true
+  }
+]

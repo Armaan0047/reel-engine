@@ -1,0 +1,28 @@
+[Script Info]
+Title: AI Reel Captions
+ScriptType: v4.00+
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+YCbCr Matrix: TV.709
+PlayResX: 1080
+PlayResY: 1920
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Arial Black,82,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,3,0,1,7,3,5,40,40,180,1
+Style: Hook,Arial Black,96,&H0001D7FF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,4,0,1,9,4,5,40,40,180,1
+Style: Highlight,Arial Black,88,&H0000CCFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,3,0,1,7,3,5,40,40,180,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.10,0:00:01.49,Hook,,0,0,0,,{\fad(178,105)\t(0,135,\fscx105\fscy105)\t(135,270,\fscx100\fscy100)}THIS GENERATION IS
+Dialogue: 0,0:00:01.52,0:00:02.91,Hook,,0,0,0,,{\fad(178,105)\t(0,135,\fscx105\fscy105)\t(135,270,\fscx100\fscy100)}COOKED. AND I
+Dialogue: 0,0:00:02.94,0:00:04.33,Default,,0,0,0,,{\fad(178,105)\t(0,135,\fscx105\fscy105)\t(135,270,\fscx100\fscy100)}MEAN THAT SERIOUSLY.
+Dialogue: 0,0:00:04.36,0:00:05.75,Default,,0,0,0,,{\fad(178,105)\t(0,135,\fscx105\fscy105)\t(135,270,\fscx100\fscy100)}ATTENTION SPANS SHORTER
+Dialogue: 0,0:00:05.78,0:00:07.18,Highlight,,0,0,0,,{\fad(178,105)\t(0,135,\fscx105\fscy105)\t(135,270,\fscx100\fscy100)}THAN GOLDFISH. EVERYONE
+Dialogue: 0,0:00:07.21,0:00:08.60,Highlight,,0,0,0,,{\fad(178,105)\t(0,135,\fscx105\fscy105)\t(135,270,\fscx100\fscy100)}WANTS SUCCESS BUT
+Dialogue: 0,0:00:08.63,0:00:10.02,Highlight,,0,0,0,,{\fad(178,105)\t(0,135,\fscx105\fscy105)\t(135,270,\fscx100\fscy100)}NOBODY CAN FOCUS
+Dialogue: 0,0:00:10.05,0:00:11.44,Default,,0,0,0,,{\fad(178,105)\t(0,135,\fscx105\fscy105)\t(135,270,\fscx100\fscy100)}FOR TEN MINUTES.
+Dialogue: 0,0:00:11.47,0:00:12.86,Default,,0,0,0,,{\fad(178,105)\t(0,135,\fscx105\fscy105)\t(135,270,\fscx100\fscy100)}YOU ARE COMPETING
+Dialogue: 0,0:00:12.90,0:00:14.29,Default,,0,0,0,,{\fad(178,105)\t(0,135,\fscx105\fscy105)\t(135,270,\fscx100\fscy100)}AGAINST PEOPLE WHO
+Dialogue: 0,0:00:14.32,0:00:15.71,Default,,0,0,0,,{\fad(178,105)\t(0,135,\fscx105\fscy105)\t(135,270,\fscx100\fscy100)}DELETED SOCIAL MEDIA.

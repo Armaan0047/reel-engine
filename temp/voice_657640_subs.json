@@ -1,0 +1,56 @@
+[
+  {
+    "text": "WHILE YOUR CLASSMATES",
+    "start": 0.1,
+    "end": 1.47,
+    "highlight": false
+  },
+  {
+    "text": "PARTY, YOU STUDY.",
+    "start": 1.47,
+    "end": 2.84,
+    "highlight": false
+  },
+  {
+    "text": "WHILE THEY SLEEP,",
+    "start": 2.79,
+    "end": 4.25,
+    "highlight": false
+  },
+  {
+    "text": "YOU GRIND.",
+    "start": 4.25,
+    "end": 5.223,
+    "highlight": true
+  },
+  {
+    "text": "THEY WILL CALL",
+    "start": 5.223,
+    "end": 6.278,
+    "highlight": false
+  },
+  {
+    "text": "YOU BORING NOW.",
+    "start": 6.278,
+    "end": 7.333,
+    "highlight": true
+  },
+  {
+    "text": "THEY WILL CALL",
+    "start": 7.333,
+    "end": 8.329,
+    "highlight": false
+  },
+  {
+    "text": "YOU BOSS IN",
+    "start": 8.329,
+    "end": 9.325,
+    "highlight": false
+  },
+  {
+    "text": "FIVE YEARS.",
+    "start": 9.325,
+    "end": 9.989,
+    "highlight": true
+  }
+]

@@ -1,0 +1,32 @@
+[Script Info]
+Title: AI Reel Captions
+ScriptType: v4.00+
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+YCbCr Matrix: TV.709
+PlayResX: 1080
+PlayResY: 1920
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Arial Black,82,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,3,0,1,7,3,5,40,40,180,1
+Style: Hook,Arial Black,96,&H0000FFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,4,0,1,9,4,5,40,40,180,1
+Style: Highlight,Arial Black,88,&H0000DDFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,3,0,1,7,3,5,40,40,180,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.10,0:00:01.25,Hook,,0,0,0,,{\fad(56,52)\t(0,87,\fscx119\fscy119)\t(87,174,\fscx100\fscy100)}SMART PEOPLE ARE
+Dialogue: 0,0:00:01.25,0:00:02.41,Hook,,0,0,0,,{\fad(56,52)\t(0,87,\fscx119\fscy119)\t(87,174,\fscx100\fscy100)}LEAVING THE RAT
+Dialogue: 0,0:00:02.41,0:00:02.79,Highlight,,0,0,0,,{\fad(56,52)\t(0,87,\fscx119\fscy119)\t(87,174,\fscx100\fscy100)}RACE.
+Dialogue: 0,0:00:02.74,0:00:03.87,Default,,0,0,0,,{\fad(56,52)\t(0,87,\fscx119\fscy119)\t(87,174,\fscx100\fscy100)}THEY REALIZED WORKING
+Dialogue: 0,0:00:03.87,0:00:05.00,Default,,0,0,0,,{\fad(56,52)\t(0,87,\fscx119\fscy119)\t(87,174,\fscx100\fscy100)}NINE TO FIVE
+Dialogue: 0,0:00:05.00,0:00:06.14,Default,,0,0,0,,{\fad(56,52)\t(0,87,\fscx119\fscy119)\t(87,174,\fscx100\fscy100)}MAKES SOMEONE ELSE
+Dialogue: 0,0:00:06.14,0:00:06.51,Highlight,,0,0,0,,{\fad(56,52)\t(0,87,\fscx119\fscy119)\t(87,174,\fscx100\fscy100)}RICH.
+Dialogue: 0,0:00:06.51,0:00:07.63,Default,,0,0,0,,{\fad(56,52)\t(0,87,\fscx119\fscy119)\t(87,174,\fscx100\fscy100)}YOUR TIME IS
+Dialogue: 0,0:00:07.63,0:00:08.75,Default,,0,0,0,,{\fad(56,52)\t(0,87,\fscx119\fscy119)\t(87,174,\fscx100\fscy100)}BEING TRADED FOR
+Dialogue: 0,0:00:08.75,0:00:09.12,Default,,0,0,0,,{\fad(56,52)\t(0,87,\fscx119\fscy119)\t(87,174,\fscx100\fscy100)}PENNIES.
+Dialogue: 0,0:00:09.12,0:00:10.02,Highlight,,0,0,0,,{\fad(56,52)\t(0,87,\fscx119\fscy119)\t(87,174,\fscx100\fscy100)}THE SYSTEM WAS
+Dialogue: 0,0:00:10.02,0:00:10.92,Highlight,,0,0,0,,{\fad(56,52)\t(0,87,\fscx119\fscy119)\t(87,174,\fscx100\fscy100)}DESIGNED TO KEEP
+Dialogue: 0,0:00:10.92,0:00:11.82,Default,,0,0,0,,{\fad(56,52)\t(0,87,\fscx119\fscy119)\t(87,174,\fscx100\fscy100)}YOU JUST COMFORTABLE
+Dialogue: 0,0:00:11.82,0:00:12.72,Highlight,,0,0,0,,{\fad(56,52)\t(0,87,\fscx119\fscy119)\t(87,174,\fscx100\fscy100)}ENOUGH TO NEVER
+Dialogue: 0,0:00:12.72,0:00:13.02,Default,,0,0,0,,{\fad(56,52)\t(0,87,\fscx119\fscy119)\t(87,174,\fscx100\fscy100)}LEAVE.

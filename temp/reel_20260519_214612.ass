@@ -1,0 +1,30 @@
+[Script Info]
+Title: AI Reel Captions
+ScriptType: v4.00+
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+YCbCr Matrix: TV.709
+PlayResX: 1080
+PlayResY: 1920
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Arial Black,82,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,3,0,1,7,3,5,40,40,180,1
+Style: Hook,Arial Black,96,&H0000FFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,4,0,1,9,4,5,40,40,180,1
+Style: Highlight,Arial Black,88,&H0000DDFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,3,0,1,7,3,5,40,40,180,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.10,0:00:01.23,Hook,,0,0,0,,{\fad(151,118)\t(0,143,\fscx104\fscy104)\t(143,286,\fscx100\fscy100)}YOUR COMFORT ZONE
+Dialogue: 0,0:00:01.26,0:00:02.39,Hook,,0,0,0,,{\fad(151,118)\t(0,143,\fscx104\fscy104)\t(143,286,\fscx100\fscy100)}IS THE MOST
+Dialogue: 0,0:00:02.42,0:00:03.55,Highlight,,0,0,0,,{\fad(151,118)\t(0,143,\fscx104\fscy104)\t(143,286,\fscx100\fscy100)}DANGEROUS PLACE YOU
+Dialogue: 0,0:00:03.58,0:00:04.71,Default,,0,0,0,,{\fad(151,118)\t(0,143,\fscx104\fscy104)\t(143,286,\fscx100\fscy100)}CAN BE. EVERY
+Dialogue: 0,0:00:04.74,0:00:05.87,Default,,0,0,0,,{\fad(151,118)\t(0,143,\fscx104\fscy104)\t(143,286,\fscx100\fscy100)}DAY YOU STAY
+Dialogue: 0,0:00:05.90,0:00:07.03,Default,,0,0,0,,{\fad(151,118)\t(0,143,\fscx104\fscy104)\t(143,286,\fscx100\fscy100)}COMFORTABLE SOMEONE HUNGRY
+Dialogue: 0,0:00:07.06,0:00:08.19,Default,,0,0,0,,{\fad(151,118)\t(0,143,\fscx104\fscy104)\t(143,286,\fscx100\fscy100)}IS CATCHING UP.
+Dialogue: 0,0:00:08.22,0:00:09.35,Default,,0,0,0,,{\fad(151,118)\t(0,143,\fscx104\fscy104)\t(143,286,\fscx100\fscy100)}PAIN IS TEMPORARY.
+Dialogue: 0,0:00:09.38,0:00:10.51,Default,,0,0,0,,{\fad(151,118)\t(0,143,\fscx104\fscy104)\t(143,286,\fscx100\fscy100)}REGRET IS FOREVER.
+Dialogue: 0,0:00:10.54,0:00:11.67,Default,,0,0,0,,{\fad(151,118)\t(0,143,\fscx104\fscy104)\t(143,286,\fscx100\fscy100)}CHOOSE THE PAIN
+Dialogue: 0,0:00:11.70,0:00:12.83,Highlight,,0,0,0,,{\fad(151,118)\t(0,143,\fscx104\fscy104)\t(143,286,\fscx100\fscy100)}OF DISCIPLINE OVER
+Dialogue: 0,0:00:12.86,0:00:13.99,Default,,0,0,0,,{\fad(151,118)\t(0,143,\fscx104\fscy104)\t(143,286,\fscx100\fscy100)}THE PAIN OF
+Dialogue: 0,0:00:14.02,0:00:14.40,Default,,0,0,0,,{\fad(151,118)\t(0,143,\fscx104\fscy104)\t(143,286,\fscx100\fscy100)}REGRET.

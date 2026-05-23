@@ -1,0 +1,31 @@
+[Script Info]
+Title: AI Reel Captions - Viral Style
+ScriptType: v4.00+
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+YCbCr Matrix: TV.709
+PlayResX: 1080
+PlayResY: 1920
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Arial Black,78,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,3,0,1,6,3,5,40,40,200,1
+Style: Hook,Arial Black,90,&H0000FFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,3,0,1,7,3,5,40,40,200,1
+Style: Highlight,Arial Black,82,&H0000DDFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,3,0,1,6,3,5,40,40,200,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.10,0:00:01.44,Hook,,0,0,0,,{\fad(90,79)\t(0,108,\fscx105\fscy105)\t(108,216,\fscx100\fscy100)}STOP AND THINK ABOUT
+Dialogue: 0,0:00:01.44,0:00:02.78,Hook,,0,0,0,,{\fad(90,79)\t(0,108,\fscx105\fscy105)\t(108,216,\fscx100\fscy100)}THIS FOR A SECOND.
+Dialogue: 0,0:00:02.73,0:00:04.41,Highlight,,0,0,0,,{\fad(90,79)\t(0,108,\fscx105\fscy105)\t(108,216,\fscx100\fscy100)}RIGHT NOW, AN AI
+Dialogue: 0,0:00:04.41,0:00:06.09,Default,,0,0,0,,{\fad(90,79)\t(0,108,\fscx105\fscy105)\t(108,216,\fscx100\fscy100)}CAN WRITE CODE, GENERATE
+Dialogue: 0,0:00:06.09,0:00:07.77,Default,,0,0,0,,{\fad(90,79)\t(0,108,\fscx105\fscy105)\t(108,216,\fscx100\fscy100)}ART, COMPOSE MUSIC, AND
+Dialogue: 0,0:00:07.77,0:00:09.03,Highlight,,0,0,0,,{\fad(90,79)\t(0,108,\fscx105\fscy105)\t(108,216,\fscx100\fscy100)}EVEN BUILD APPS.
+Dialogue: 0,0:00:09.03,0:00:10.85,Default,,0,0,0,,{\fad(90,79)\t(0,108,\fscx105\fscy105)\t(108,216,\fscx100\fscy100)}ALL BY ITSELF.
+Dialogue: 0,0:00:10.85,0:00:12.73,Highlight,,0,0,0,,{\fad(90,79)\t(0,108,\fscx105\fscy105)\t(108,216,\fscx100\fscy100)}NO HUMAN NEEDED.
+Dialogue: 0,0:00:12.73,0:00:14.04,Default,,0,0,0,,{\fad(90,79)\t(0,108,\fscx105\fscy105)\t(108,216,\fscx100\fscy100)}WE ARE LIVING IN
+Dialogue: 0,0:00:14.04,0:00:15.34,Default,,0,0,0,,{\fad(90,79)\t(0,108,\fscx105\fscy105)\t(108,216,\fscx100\fscy100)}A TIME WHERE MACHINES
+Dialogue: 0,0:00:15.34,0:00:16.32,Default,,0,0,0,,{\fad(90,79)\t(0,108,\fscx105\fscy105)\t(108,216,\fscx100\fscy100)}ARE BECOMING CREATORS.
+Dialogue: 0,0:00:16.32,0:00:17.66,Default,,0,0,0,,{\fad(90,79)\t(0,108,\fscx105\fscy105)\t(108,216,\fscx100\fscy100)}THE QUESTION IS, ARE
+Dialogue: 0,0:00:17.66,0:00:19.00,Highlight,,0,0,0,,{\fad(90,79)\t(0,108,\fscx105\fscy105)\t(108,216,\fscx100\fscy100)}YOU READY FOR WHAT
+Dialogue: 0,0:00:19.00,0:00:19.67,Default,,0,0,0,,{\fad(90,79)\t(0,108,\fscx105\fscy105)\t(108,216,\fscx100\fscy100)}COMES NEXT?

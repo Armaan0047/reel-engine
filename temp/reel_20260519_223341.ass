@@ -1,0 +1,31 @@
+[Script Info]
+Title: AI Reel Captions
+ScriptType: v4.00+
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+YCbCr Matrix: TV.709
+PlayResX: 1080
+PlayResY: 1920
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Arial Black,82,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,3,0,1,7,3,5,40,40,180,1
+Style: Hook,Arial Black,96,&H0001D7FF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,4,0,1,9,4,5,40,40,180,1
+Style: Highlight,Arial Black,88,&H0000CCFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,3,0,1,7,3,5,40,40,180,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.10,0:00:00.56,Hook,,0,0,0,,{\fad(138,131)\t(0,121,\fscx104\fscy104)\t(121,242,\fscx100\fscy100)}FIVE
+Dialogue: 0,0:00:00.59,0:00:01.53,Hook,,0,0,0,,{\fad(138,131)\t(0,121,\fscx104\fscy104)\t(121,242,\fscx100\fscy100)}AM. EMPTY
+Dialogue: 0,0:00:01.56,0:00:02.03,Default,,0,0,0,,{\fad(138,131)\t(0,121,\fscx104\fscy104)\t(121,242,\fscx100\fscy100)}ROADS.
+Dialogue: 0,0:00:02.06,0:00:02.53,Default,,0,0,0,,{\fad(138,131)\t(0,121,\fscx104\fscy104)\t(121,242,\fscx100\fscy100)}YOU
+Dialogue: 0,0:00:02.56,0:00:03.50,Default,,0,0,0,,{\fad(138,131)\t(0,121,\fscx104\fscy104)\t(121,242,\fscx100\fscy100)}AND YOUR
+Dialogue: 0,0:00:03.53,0:00:04.94,Default,,0,0,0,,{\fad(138,131)\t(0,121,\fscx104\fscy104)\t(121,242,\fscx100\fscy100)}GOALS. WHILE THE
+Dialogue: 0,0:00:04.97,0:00:06.38,Default,,0,0,0,,{\fad(138,131)\t(0,121,\fscx104\fscy104)\t(121,242,\fscx100\fscy100)}WORLD SLEEPS YOU
+Dialogue: 0,0:00:06.41,0:00:07.82,Highlight,,0,0,0,,{\fad(138,131)\t(0,121,\fscx104\fscy104)\t(121,242,\fscx100\fscy100)}COMPOUND YOUR WEALTH.
+Dialogue: 0,0:00:07.85,0:00:09.25,Default,,0,0,0,,{\fad(138,131)\t(0,121,\fscx104\fscy104)\t(121,242,\fscx100\fscy100)}EVERY HOUR BEFORE
+Dialogue: 0,0:00:09.28,0:00:10.69,Default,,0,0,0,,{\fad(138,131)\t(0,121,\fscx104\fscy104)\t(121,242,\fscx100\fscy100)}SUNRISE IS AN
+Dialogue: 0,0:00:10.72,0:00:12.13,Highlight,,0,0,0,,{\fad(138,131)\t(0,121,\fscx104\fscy104)\t(121,242,\fscx100\fscy100)}INVESTMENT. THE RICH
+Dialogue: 0,0:00:12.16,0:00:13.57,Default,,0,0,0,,{\fad(138,131)\t(0,121,\fscx104\fscy104)\t(121,242,\fscx100\fscy100)}UNDERSTAND WHAT THE
+Dialogue: 0,0:00:13.60,0:00:15.01,Highlight,,0,0,0,,{\fad(138,131)\t(0,121,\fscx104\fscy104)\t(121,242,\fscx100\fscy100)}POOR NEVER WILL
+Dialogue: 0,0:00:15.04,0:00:16.44,Highlight,,0,0,0,,{\fad(138,131)\t(0,121,\fscx104\fscy104)\t(121,242,\fscx100\fscy100)}TIME IS MONEY.

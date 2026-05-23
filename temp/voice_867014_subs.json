@@ -1,0 +1,92 @@
+[
+  {
+    "text": "EVERYONE",
+    "start": 0.1,
+    "end": 0.47,
+    "highlight": true
+  },
+  {
+    "text": "IS SLEEPING",
+    "start": 0.5,
+    "end": 1.241,
+    "highlight": false
+  },
+  {
+    "text": "ON",
+    "start": 1.271,
+    "end": 1.641,
+    "highlight": false
+  },
+  {
+    "text": "THIS AI",
+    "start": 1.671,
+    "end": 2.412,
+    "highlight": true
+  },
+  {
+    "text": "HACK. WHILE",
+    "start": 2.442,
+    "end": 3.182,
+    "highlight": true
+  },
+  {
+    "text": "THEY COMPLAIN ABOUT",
+    "start": 3.212,
+    "end": 4.323,
+    "highlight": false
+  },
+  {
+    "text": "THE JOB MARKET,",
+    "start": 4.353,
+    "end": 5.463,
+    "highlight": false
+  },
+  {
+    "text": "SMART PEOPLE ARE",
+    "start": 5.493,
+    "end": 6.604,
+    "highlight": false
+  },
+  {
+    "text": "AUTOMATING EVERYTHING. I",
+    "start": 6.634,
+    "end": 7.745,
+    "highlight": true
+  },
+  {
+    "text": "LITERALLY BUILT A",
+    "start": 7.775,
+    "end": 8.886,
+    "highlight": true
+  },
+  {
+    "text": "BUSINESS IN 30",
+    "start": 8.916,
+    "end": 10.026,
+    "highlight": false
+  },
+  {
+    "text": "MINUTES USING ONE",
+    "start": 10.056,
+    "end": 11.167,
+    "highlight": false
+  },
+  {
+    "text": "PROMPT. WAKE UP",
+    "start": 11.197,
+    "end": 12.308,
+    "highlight": true
+  },
+  {
+    "text": "BEFORE YOU GET",
+    "start": 12.338,
+    "end": 13.449,
+    "highlight": false
+  },
+  {
+    "text": "LEFT COMPLETELY BEHIND.",
+    "start": 13.479,
+    "end": 14.59,
+    "highlight": true
+  }
+]

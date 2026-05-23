@@ -1,0 +1,28 @@
+[Script Info]
+Title: AI Reel Captions
+ScriptType: v4.00+
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+YCbCr Matrix: TV.709
+PlayResX: 1080
+PlayResY: 1920
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Arial Black,82,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,3,0,1,7,3,5,40,40,180,1
+Style: Hook,Arial Black,96,&H0000FFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,4,0,1,9,4,5,40,40,180,1
+Style: Highlight,Arial Black,88,&H0000DDFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,3,0,1,7,3,5,40,40,180,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.10,0:00:01.62,Hook,,0,0,0,,{\fad(35,18)\t(0,64,\fscx126\fscy126)\t(64,128,\fscx100\fscy100)}A SIGMA DOES
+Dialogue: 0,0:00:01.65,0:00:03.18,Hook,,0,0,0,,{\fad(35,18)\t(0,64,\fscx126\fscy126)\t(64,128,\fscx100\fscy100)}NOT FLEX. A
+Dialogue: 0,0:00:03.21,0:00:04.74,Default,,0,0,0,,{\fad(35,18)\t(0,64,\fscx126\fscy126)\t(64,128,\fscx100\fscy100)}SIGMA LETS RESULTS
+Dialogue: 0,0:00:04.77,0:00:06.29,Highlight,,0,0,0,,{\fad(35,18)\t(0,64,\fscx126\fscy126)\t(64,128,\fscx100\fscy100)}SPEAK. THE PENTHOUSE.
+Dialogue: 0,0:00:06.32,0:00:07.85,Highlight,,0,0,0,,{\fad(35,18)\t(0,64,\fscx126\fscy126)\t(64,128,\fscx100\fscy100)}THE WATCH. THE
+Dialogue: 0,0:00:07.88,0:00:09.41,Default,,0,0,0,,{\fad(35,18)\t(0,64,\fscx126\fscy126)\t(64,128,\fscx100\fscy100)}PORTFOLIO. ALL BUILT
+Dialogue: 0,0:00:09.44,0:00:10.96,Default,,0,0,0,,{\fad(35,18)\t(0,64,\fscx126\fscy126)\t(64,128,\fscx100\fscy100)}IN SILENCE WHILE
+Dialogue: 0,0:00:10.99,0:00:12.52,Highlight,,0,0,0,,{\fad(35,18)\t(0,64,\fscx126\fscy126)\t(64,128,\fscx100\fscy100)}EVERYONE WAS BUSY
+Dialogue: 0,0:00:12.55,0:00:14.08,Highlight,,0,0,0,,{\fad(35,18)\t(0,64,\fscx126\fscy126)\t(64,128,\fscx100\fscy100)}BEING LOUD. DISCIPLINE
+Dialogue: 0,0:00:14.11,0:00:15.64,Default,,0,0,0,,{\fad(35,18)\t(0,64,\fscx126\fscy126)\t(64,128,\fscx100\fscy100)}PLUS PATIENCE EQUALS
+Dialogue: 0,0:00:15.67,0:00:16.17,Highlight,,0,0,0,,{\fad(35,18)\t(0,64,\fscx126\fscy126)\t(64,128,\fscx100\fscy100)}WEALTH.

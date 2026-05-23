@@ -1,0 +1,28 @@
+[Script Info]
+Title: AI Reel Captions
+ScriptType: v4.00+
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+YCbCr Matrix: TV.709
+PlayResX: 1080
+PlayResY: 1920
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Arial Black,82,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,3,0,1,7,3,5,40,40,180,1
+Style: Hook,Arial Black,96,&H0000FFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,4,0,1,9,4,5,40,40,180,1
+Style: Highlight,Arial Black,88,&H0000DDFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,3,0,1,7,3,5,40,40,180,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.10,0:00:01.14,Hook,,0,0,0,,{\fad(24,15)\t(0,41,\fscx127\fscy127)\t(41,82,\fscx100\fscy100)}THIS GENERATION IS
+Dialogue: 0,0:00:01.17,0:00:02.22,Hook,,0,0,0,,{\fad(24,15)\t(0,41,\fscx127\fscy127)\t(41,82,\fscx100\fscy100)}COOKED. AND I
+Dialogue: 0,0:00:02.25,0:00:03.29,Default,,0,0,0,,{\fad(24,15)\t(0,41,\fscx127\fscy127)\t(41,82,\fscx100\fscy100)}MEAN THAT SERIOUSLY.
+Dialogue: 0,0:00:03.33,0:00:04.37,Default,,0,0,0,,{\fad(24,15)\t(0,41,\fscx127\fscy127)\t(41,82,\fscx100\fscy100)}ATTENTION SPANS SHORTER
+Dialogue: 0,0:00:04.40,0:00:05.45,Highlight,,0,0,0,,{\fad(24,15)\t(0,41,\fscx127\fscy127)\t(41,82,\fscx100\fscy100)}THAN GOLDFISH. EVERYONE
+Dialogue: 0,0:00:05.48,0:00:06.53,Highlight,,0,0,0,,{\fad(24,15)\t(0,41,\fscx127\fscy127)\t(41,82,\fscx100\fscy100)}WANTS SUCCESS BUT
+Dialogue: 0,0:00:06.55,0:00:07.60,Highlight,,0,0,0,,{\fad(24,15)\t(0,41,\fscx127\fscy127)\t(41,82,\fscx100\fscy100)}NOBODY CAN FOCUS
+Dialogue: 0,0:00:07.63,0:00:08.68,Default,,0,0,0,,{\fad(24,15)\t(0,41,\fscx127\fscy127)\t(41,82,\fscx100\fscy100)}FOR TEN MINUTES.
+Dialogue: 0,0:00:08.71,0:00:09.76,Default,,0,0,0,,{\fad(24,15)\t(0,41,\fscx127\fscy127)\t(41,82,\fscx100\fscy100)}YOU ARE COMPETING
+Dialogue: 0,0:00:09.79,0:00:10.83,Default,,0,0,0,,{\fad(24,15)\t(0,41,\fscx127\fscy127)\t(41,82,\fscx100\fscy100)}AGAINST PEOPLE WHO
+Dialogue: 0,0:00:10.86,0:00:11.91,Default,,0,0,0,,{\fad(24,15)\t(0,41,\fscx127\fscy127)\t(41,82,\fscx100\fscy100)}DELETED SOCIAL MEDIA.

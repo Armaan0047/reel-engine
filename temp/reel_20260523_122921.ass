@@ -1,0 +1,29 @@
+[Script Info]
+Title: AI Reel Captions
+ScriptType: v4.00+
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+YCbCr Matrix: TV.709
+PlayResX: 1080
+PlayResY: 1920
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Arial Black,82,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,3,0,1,7,3,5,40,40,180,1
+Style: Hook,Arial Black,96,&H0000FFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,4,0,1,9,4,5,40,40,180,1
+Style: Highlight,Arial Black,88,&H0000DDFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,3,0,1,7,3,5,40,40,180,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.10,0:00:00.57,Hook,,0,0,0,,{\fad(113,61)\t(0,118,\fscx110\fscy110)\t(118,236,\fscx100\fscy100)}THEY
+Dialogue: 0,0:00:00.61,0:00:01.57,Hook,,0,0,0,,{\fad(113,61)\t(0,118,\fscx110\fscy110)\t(118,236,\fscx100\fscy100)}PROGRAMMED YOU
+Dialogue: 0,0:00:01.60,0:00:02.08,Default,,0,0,0,,{\fad(113,61)\t(0,118,\fscx110\fscy110)\t(118,236,\fscx100\fscy100)}TO
+Dialogue: 0,0:00:02.10,0:00:02.58,Default,,0,0,0,,{\fad(113,61)\t(0,118,\fscx110\fscy110)\t(118,236,\fscx100\fscy100)}BE
+Dialogue: 0,0:00:02.62,0:00:03.57,Highlight,,0,0,0,,{\fad(113,61)\t(0,118,\fscx110\fscy110)\t(118,236,\fscx100\fscy100)}AVERAGE. SCHOOL
+Dialogue: 0,0:00:03.60,0:00:05.04,Default,,0,0,0,,{\fad(113,61)\t(0,118,\fscx110\fscy110)\t(118,236,\fscx100\fscy100)}TAUGHT YOU TO
+Dialogue: 0,0:00:05.07,0:00:06.51,Default,,0,0,0,,{\fad(113,61)\t(0,118,\fscx110\fscy110)\t(118,236,\fscx100\fscy100)}FOLLOW RULES NOT
+Dialogue: 0,0:00:06.54,0:00:07.98,Default,,0,0,0,,{\fad(113,61)\t(0,118,\fscx110\fscy110)\t(118,236,\fscx100\fscy100)}BREAK THEM. SOCIETY
+Dialogue: 0,0:00:08.01,0:00:09.45,Default,,0,0,0,,{\fad(113,61)\t(0,118,\fscx110\fscy110)\t(118,236,\fscx100\fscy100)}REWARDS OBEDIENCE, NOT
+Dialogue: 0,0:00:09.48,0:00:10.92,Default,,0,0,0,,{\fad(113,61)\t(0,118,\fscx110\fscy110)\t(118,236,\fscx100\fscy100)}INTELLIGENCE. THE MOMENT
+Dialogue: 0,0:00:10.95,0:00:12.39,Default,,0,0,0,,{\fad(113,61)\t(0,118,\fscx110\fscy110)\t(118,236,\fscx100\fscy100)}YOU REALIZE THIS
+Dialogue: 0,0:00:12.42,0:00:13.38,Highlight,,0,0,0,,{\fad(113,61)\t(0,118,\fscx110\fscy110)\t(118,236,\fscx100\fscy100)}EVERYTHING CHANGES.

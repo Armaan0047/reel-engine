@@ -1,0 +1,30 @@
+[Script Info]
+Title: AI Reel Captions
+ScriptType: v4.00+
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+YCbCr Matrix: TV.709
+PlayResX: 1080
+PlayResY: 1920
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Arial Black,82,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,3,0,1,7,3,5,40,40,180,1
+Style: Hook,Arial Black,96,&H0000FFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,4,0,1,9,4,5,40,40,180,1
+Style: Highlight,Arial Black,88,&H0000DDFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,3,0,1,7,3,5,40,40,180,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.10,0:00:00.60,Hook,,0,0,0,,{\fad(15,16)\t(0,36,\fscx143\fscy143)\t(36,72,\fscx100\fscy100)}THE
+Dialogue: 0,0:00:00.63,0:00:01.63,Hook,,0,0,0,,{\fad(15,16)\t(0,36,\fscx143\fscy143)\t(36,72,\fscx100\fscy100)}SYSTEM WAS
+Dialogue: 0,0:00:01.66,0:00:02.66,Highlight,,0,0,0,,{\fad(15,16)\t(0,36,\fscx143\fscy143)\t(36,72,\fscx100\fscy100)}DESIGNED TO
+Dialogue: 0,0:00:02.69,0:00:03.20,Default,,0,0,0,,{\fad(15,16)\t(0,36,\fscx143\fscy143)\t(36,72,\fscx100\fscy100)}KEEP
+Dialogue: 0,0:00:03.23,0:00:04.73,Default,,0,0,0,,{\fad(15,16)\t(0,36,\fscx143\fscy143)\t(36,72,\fscx100\fscy100)}YOU BUSY. WHILE
+Dialogue: 0,0:00:04.76,0:00:06.27,Highlight,,0,0,0,,{\fad(15,16)\t(0,36,\fscx143\fscy143)\t(36,72,\fscx100\fscy100)}YOU SCROLL AI
+Dialogue: 0,0:00:06.30,0:00:07.80,Highlight,,0,0,0,,{\fad(15,16)\t(0,36,\fscx143\fscy143)\t(36,72,\fscx100\fscy100)}IS LEARNING EVERYTHING.
+Dialogue: 0,0:00:07.83,0:00:09.34,Highlight,,0,0,0,,{\fad(15,16)\t(0,36,\fscx143\fscy143)\t(36,72,\fscx100\fscy100)}IT WRITES CODE.
+Dialogue: 0,0:00:09.37,0:00:10.87,Default,,0,0,0,,{\fad(15,16)\t(0,36,\fscx143\fscy143)\t(36,72,\fscx100\fscy100)}CREATES ART. BUILDS
+Dialogue: 0,0:00:10.90,0:00:12.41,Default,,0,0,0,,{\fad(15,16)\t(0,36,\fscx143\fscy143)\t(36,72,\fscx100\fscy100)}COMPANIES. AND IT
+Dialogue: 0,0:00:12.44,0:00:13.94,Highlight,,0,0,0,,{\fad(15,16)\t(0,36,\fscx143\fscy143)\t(36,72,\fscx100\fscy100)}NEVER SLEEPS. WAKE
+Dialogue: 0,0:00:13.97,0:00:15.48,Default,,0,0,0,,{\fad(15,16)\t(0,36,\fscx143\fscy143)\t(36,72,\fscx100\fscy100)}UP BEFORE IT'S
+Dialogue: 0,0:00:15.51,0:00:16.51,Default,,0,0,0,,{\fad(15,16)\t(0,36,\fscx143\fscy143)\t(36,72,\fscx100\fscy100)}TOO LATE.

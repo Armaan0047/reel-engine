@@ -1,0 +1,86 @@
+[
+  {
+    "text": "EVERYONE WANTS THE",
+    "start": 0.1,
+    "end": 1.225,
+    "highlight": true
+  },
+  {
+    "text": "LIFESTYLE BUT NOBODY",
+    "start": 1.225,
+    "end": 2.351,
+    "highlight": true
+  },
+  {
+    "text": "WANTS THE GRIND.",
+    "start": 2.351,
+    "end": 3.476,
+    "highlight": true
+  },
+  {
+    "text": "THEY SEE THE",
+    "start": 3.426,
+    "end": 4.565,
+    "highlight": false
+  },
+  {
+    "text": "RESULTS BUT IGNORE",
+    "start": 4.565,
+    "end": 5.703,
+    "highlight": false
+  },
+  {
+    "text": "THE SACRIFICE.",
+    "start": 5.703,
+    "end": 6.462,
+    "highlight": false
+  },
+  {
+    "text": "WHILE YOU WERE",
+    "start": 6.462,
+    "end": 7.593,
+    "highlight": false
+  },
+  {
+    "text": "SLEEPING, SOMEONE WAS",
+    "start": 7.593,
+    "end": 8.724,
+    "highlight": false
+  },
+  {
+    "text": "BUILDING THEIR EMPIRE.",
+    "start": 8.724,
+    "end": 9.855,
+    "highlight": false
+  },
+  {
+    "text": "DISCIPLINE IS CHOOSING",
+    "start": 9.855,
+    "end": 10.731,
+    "highlight": true
+  },
+  {
+    "text": "BETWEEN WHAT YOU",
+    "start": 10.731,
+    "end": 11.606,
+    "highlight": false
+  },
+  {
+    "text": "WANT NOW AND",
+    "start": 11.606,
+    "end": 12.482,
+    "highlight": true
+  },
+  {
+    "text": "WHAT YOU WANT",
+    "start": 12.482,
+    "end": 13.358,
+    "highlight": false
+  },
+  {
+    "text": "MOST.",
+    "start": 13.358,
+    "end": 13.65,
+    "highlight": false
+  }
+]

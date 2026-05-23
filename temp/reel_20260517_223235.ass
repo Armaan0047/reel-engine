@@ -1,0 +1,28 @@
+[Script Info]
+Title: AI Reel Captions - Viral Style
+ScriptType: v4.00+
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+YCbCr Matrix: TV.709
+PlayResX: 1080
+PlayResY: 1920
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Arial Black,78,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,3,0,1,6,3,5,40,40,200,1
+Style: Hook,Arial Black,90,&H0000FFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,3,0,1,7,3,5,40,40,200,1
+Style: Highlight,Arial Black,82,&H0000DDFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,3,0,1,6,3,5,40,40,200,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.10,0:00:01.83,Hook,,0,0,0,,{\fad(105,113)\t(0,144,\fscx109\fscy109)\t(144,288,\fscx100\fscy100)}IMAGINE HAVING A PERSONAL
+Dialogue: 0,0:00:01.83,0:00:03.57,Hook,,0,0,0,,{\fad(105,113)\t(0,144,\fscx109\fscy109)\t(144,288,\fscx100\fscy100)}ASSISTANT THAT NEVER SLEEPS.
+Dialogue: 0,0:00:03.52,0:00:05.34,Highlight,,0,0,0,,{\fad(105,113)\t(0,144,\fscx109\fscy109)\t(144,288,\fscx100\fscy100)}THAT'S EXACTLY WHAT AI
+Dialogue: 0,0:00:05.34,0:00:06.25,Default,,0,0,0,,{\fad(105,113)\t(0,144,\fscx109\fscy109)\t(144,288,\fscx100\fscy100)}HAS BECOME.
+Dialogue: 0,0:00:06.25,0:00:07.79,Default,,0,0,0,,{\fad(105,113)\t(0,144,\fscx109\fscy109)\t(144,288,\fscx100\fscy100)}FROM SCHEDULING YOUR DAY
+Dialogue: 0,0:00:07.79,0:00:09.34,Default,,0,0,0,,{\fad(105,113)\t(0,144,\fscx109\fscy109)\t(144,288,\fscx100\fscy100)}TO WRITING YOUR EMAILS,
+Dialogue: 0,0:00:09.34,0:00:10.50,Highlight,,0,0,0,,{\fad(105,113)\t(0,144,\fscx109\fscy109)\t(144,288,\fscx100\fscy100)}IT HANDLES EVERYTHING.
+Dialogue: 0,0:00:10.50,0:00:11.92,Default,,0,0,0,,{\fad(105,113)\t(0,144,\fscx109\fscy109)\t(144,288,\fscx100\fscy100)}THE WORLD IS SHIFTING,
+Dialogue: 0,0:00:11.92,0:00:13.35,Default,,0,0,0,,{\fad(105,113)\t(0,144,\fscx109\fscy109)\t(144,288,\fscx100\fscy100)}AND THE SMART ONES
+Dialogue: 0,0:00:13.35,0:00:14.41,Highlight,,0,0,0,,{\fad(105,113)\t(0,144,\fscx109\fscy109)\t(144,288,\fscx100\fscy100)}ARE ALREADY ADAPTING.
+Dialogue: 0,0:00:14.41,0:00:16.39,Highlight,,0,0,0,,{\fad(105,113)\t(0,144,\fscx109\fscy109)\t(144,288,\fscx100\fscy100)}DON'T GET LEFT BEHIND.

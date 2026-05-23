@@ -1,0 +1,30 @@
+[Script Info]
+Title: AI Reel Captions
+ScriptType: v4.00+
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+YCbCr Matrix: TV.709
+PlayResX: 1080
+PlayResY: 1920
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Arial Black,82,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,3,0,1,7,3,5,40,40,180,1
+Style: Hook,Arial Black,96,&H0000FFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,4,0,1,9,4,5,40,40,180,1
+Style: Highlight,Arial Black,88,&H0000DDFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,3,0,1,7,3,5,40,40,180,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.10,0:00:01.20,Hook,,0,0,0,,{\fad(21,13)\t(0,37,\fscx130\fscy130)\t(37,74,\fscx100\fscy100)}EVERYONE WANTS THE
+Dialogue: 0,0:00:01.23,0:00:02.34,Hook,,0,0,0,,{\fad(21,13)\t(0,37,\fscx130\fscy130)\t(37,74,\fscx100\fscy100)}LIFESTYLE BUT NOBODY
+Dialogue: 0,0:00:02.37,0:00:03.48,Highlight,,0,0,0,,{\fad(21,13)\t(0,37,\fscx130\fscy130)\t(37,74,\fscx100\fscy100)}WANTS THE GRIND.
+Dialogue: 0,0:00:03.51,0:00:04.62,Default,,0,0,0,,{\fad(21,13)\t(0,37,\fscx130\fscy130)\t(37,74,\fscx100\fscy100)}THEY SEE THE
+Dialogue: 0,0:00:04.65,0:00:05.76,Default,,0,0,0,,{\fad(21,13)\t(0,37,\fscx130\fscy130)\t(37,74,\fscx100\fscy100)}RESULTS BUT IGNORE
+Dialogue: 0,0:00:05.79,0:00:06.90,Default,,0,0,0,,{\fad(21,13)\t(0,37,\fscx130\fscy130)\t(37,74,\fscx100\fscy100)}THE SACRIFICE. WHILE
+Dialogue: 0,0:00:06.93,0:00:08.04,Default,,0,0,0,,{\fad(21,13)\t(0,37,\fscx130\fscy130)\t(37,74,\fscx100\fscy100)}YOU WERE SLEEPING,
+Dialogue: 0,0:00:08.07,0:00:09.18,Default,,0,0,0,,{\fad(21,13)\t(0,37,\fscx130\fscy130)\t(37,74,\fscx100\fscy100)}SOMEONE WAS BUILDING
+Dialogue: 0,0:00:09.21,0:00:10.32,Highlight,,0,0,0,,{\fad(21,13)\t(0,37,\fscx130\fscy130)\t(37,74,\fscx100\fscy100)}THEIR EMPIRE. DISCIPLINE
+Dialogue: 0,0:00:10.35,0:00:11.46,Default,,0,0,0,,{\fad(21,13)\t(0,37,\fscx130\fscy130)\t(37,74,\fscx100\fscy100)}IS CHOOSING BETWEEN
+Dialogue: 0,0:00:11.49,0:00:12.60,Default,,0,0,0,,{\fad(21,13)\t(0,37,\fscx130\fscy130)\t(37,74,\fscx100\fscy100)}WHAT YOU WANT
+Dialogue: 0,0:00:12.63,0:00:13.74,Highlight,,0,0,0,,{\fad(21,13)\t(0,37,\fscx130\fscy130)\t(37,74,\fscx100\fscy100)}NOW AND WHAT
+Dialogue: 0,0:00:13.77,0:00:14.88,Default,,0,0,0,,{\fad(21,13)\t(0,37,\fscx130\fscy130)\t(37,74,\fscx100\fscy100)}YOU WANT MOST.

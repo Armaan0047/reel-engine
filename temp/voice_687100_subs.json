@@ -1,0 +1,86 @@
+[
+  {
+    "text": "STOP AND THINK ABOUT",
+    "start": 0.1,
+    "end": 1.444,
+    "highlight": true
+  },
+  {
+    "text": "THIS FOR A SECOND.",
+    "start": 1.444,
+    "end": 2.789,
+    "highlight": false
+  },
+  {
+    "text": "RIGHT NOW, AN AI",
+    "start": 2.739,
+    "end": 4.417,
+    "highlight": true
+  },
+  {
+    "text": "CAN WRITE CODE, GENERATE",
+    "start": 4.417,
+    "end": 6.096,
+    "highlight": false
+  },
+  {
+    "text": "ART, COMPOSE MUSIC, AND",
+    "start": 6.096,
+    "end": 7.775,
+    "highlight": false
+  },
+  {
+    "text": "EVEN BUILD APPS.",
+    "start": 7.775,
+    "end": 9.034,
+    "highlight": true
+  },
+  {
+    "text": "ALL BY ITSELF.",
+    "start": 9.034,
+    "end": 10.852,
+    "highlight": false
+  },
+  {
+    "text": "NO HUMAN NEEDED.",
+    "start": 10.852,
+    "end": 12.739,
+    "highlight": true
+  },
+  {
+    "text": "WE ARE LIVING IN",
+    "start": 12.739,
+    "end": 14.044,
+    "highlight": false
+  },
+  {
+    "text": "A TIME WHERE MACHINES",
+    "start": 14.044,
+    "end": 15.35,
+    "highlight": false
+  },
+  {
+    "text": "ARE BECOMING CREATORS.",
+    "start": 15.35,
+    "end": 16.33,
+    "highlight": false
+  },
+  {
+    "text": "THE QUESTION IS, ARE",
+    "start": 16.33,
+    "end": 17.666,
+    "highlight": false
+  },
+  {
+    "text": "YOU READY FOR WHAT",
+    "start": 17.666,
+    "end": 19.002,
+    "highlight": true
+  },
+  {
+    "text": "COMES NEXT?",
+    "start": 19.002,
+    "end": 19.67,
+    "highlight": false
+  }
+]

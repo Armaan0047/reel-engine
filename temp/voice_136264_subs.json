@@ -1,0 +1,74 @@
+[
+  {
+    "text": "HERE IS WHAT",
+    "start": 0.1,
+    "end": 1.365,
+    "highlight": false
+  },
+  {
+    "text": "IS COMING AND",
+    "start": 1.395,
+    "end": 2.661,
+    "highlight": false
+  },
+  {
+    "text": "NOBODY IS READY.",
+    "start": 2.691,
+    "end": 3.956,
+    "highlight": true
+  },
+  {
+    "text": "AI THAT THINKS",
+    "start": 3.986,
+    "end": 5.252,
+    "highlight": true
+  },
+  {
+    "text": "FOR ITSELF. ROBOTS",
+    "start": 5.282,
+    "end": 6.547,
+    "highlight": false
+  },
+  {
+    "text": "THAT BUILD OTHER",
+    "start": 6.577,
+    "end": 7.842,
+    "highlight": true
+  },
+  {
+    "text": "ROBOTS. TECHNOLOGY THAT",
+    "start": 7.872,
+    "end": 9.138,
+    "highlight": false
+  },
+  {
+    "text": "EVOLVES FASTER THAN",
+    "start": 9.168,
+    "end": 10.433,
+    "highlight": false
+  },
+  {
+    "text": "HUMANS CAN ADAPT.",
+    "start": 10.463,
+    "end": 11.729,
+    "highlight": false
+  },
+  {
+    "text": "THE FUTURE BELONGS",
+    "start": 11.759,
+    "end": 13.024,
+    "highlight": true
+  },
+  {
+    "text": "TO THOSE WHO",
+    "start": 13.054,
+    "end": 14.319,
+    "highlight": false
+  },
+  {
+    "text": "PREPARE TODAY.",
+    "start": 14.349,
+    "end": 15.193,
+    "highlight": true
+  }
+]

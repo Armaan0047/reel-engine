@@ -1,0 +1,27 @@
+[Script Info]
+Title: AI Reel Captions
+ScriptType: v4.00+
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+YCbCr Matrix: TV.709
+PlayResX: 1080
+PlayResY: 1920
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Arial Black,82,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,3,0,1,7,3,5,40,40,180,1
+Style: Hook,Arial Black,96,&H0000FFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,4,0,1,9,4,5,40,40,180,1
+Style: Highlight,Arial Black,88,&H0000DDFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,3,0,1,7,3,5,40,40,180,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.10,0:00:01.33,Hook,,0,0,0,,{\fad(22,11)\t(0,28,\fscx140\fscy140)\t(28,56,\fscx100\fscy100)}POV: YOU FINALLY
+Dialogue: 0,0:00:01.36,0:00:02.60,Hook,,0,0,0,,{\fad(22,11)\t(0,28,\fscx140\fscy140)\t(28,56,\fscx100\fscy100)}UNDERSTAND THAT NOBODY
+Dialogue: 0,0:00:02.63,0:00:03.87,Default,,0,0,0,,{\fad(22,11)\t(0,28,\fscx140\fscy140)\t(28,56,\fscx100\fscy100)}IS THINKING ABOUT
+Dialogue: 0,0:00:03.90,0:00:05.14,Highlight,,0,0,0,,{\fad(22,11)\t(0,28,\fscx140\fscy140)\t(28,56,\fscx100\fscy100)}YOU. EVERYONE IS
+Dialogue: 0,0:00:05.17,0:00:06.41,Default,,0,0,0,,{\fad(22,11)\t(0,28,\fscx140\fscy140)\t(28,56,\fscx100\fscy100)}TOO BUSY WORRYING
+Dialogue: 0,0:00:06.44,0:00:07.68,Default,,0,0,0,,{\fad(22,11)\t(0,28,\fscx140\fscy140)\t(28,56,\fscx100\fscy100)}ABOUT THEMSELVES. THE
+Dialogue: 0,0:00:07.71,0:00:08.95,Default,,0,0,0,,{\fad(22,11)\t(0,28,\fscx140\fscy140)\t(28,56,\fscx100\fscy100)}FREEDOM IN THIS
+Dialogue: 0,0:00:08.98,0:00:10.22,Default,,0,0,0,,{\fad(22,11)\t(0,28,\fscx140\fscy140)\t(28,56,\fscx100\fscy100)}REALIZATION IS LIFE-CHANGING.
+Dialogue: 0,0:00:10.25,0:00:11.48,Highlight,,0,0,0,,{\fad(22,11)\t(0,28,\fscx140\fscy140)\t(28,56,\fscx100\fscy100)}STOP PERFORMING. START
+Dialogue: 0,0:00:11.51,0:00:11.93,Default,,0,0,0,,{\fad(22,11)\t(0,28,\fscx140\fscy140)\t(28,56,\fscx100\fscy100)}BUILDING.

@@ -1,0 +1,80 @@
+[
+  {
+    "text": "AI JUST DID",
+    "start": 0.1,
+    "end": 1.341,
+    "highlight": true
+  },
+  {
+    "text": "IN FIVE SECONDS",
+    "start": 1.371,
+    "end": 2.611,
+    "highlight": false
+  },
+  {
+    "text": "WHAT TOOK A",
+    "start": 2.641,
+    "end": 3.881,
+    "highlight": false
+  },
+  {
+    "text": "TEAM TWO WEEKS.",
+    "start": 3.912,
+    "end": 5.152,
+    "highlight": false
+  },
+  {
+    "text": "PROGRAMMERS ARE SCARED.",
+    "start": 5.182,
+    "end": 6.423,
+    "highlight": false
+  },
+  {
+    "text": "DESIGNERS ARE WORRIED.",
+    "start": 6.453,
+    "end": 7.693,
+    "highlight": false
+  },
+  {
+    "text": "WRITERS ARE PANICKING.",
+    "start": 7.723,
+    "end": 8.963,
+    "highlight": false
+  },
+  {
+    "text": "BUT HERE IS",
+    "start": 8.994,
+    "end": 10.234,
+    "highlight": false
+  },
+  {
+    "text": "THE TRUTH NOBODY",
+    "start": 10.264,
+    "end": 11.505,
+    "highlight": true
+  },
+  {
+    "text": "WANTS TO HEAR.",
+    "start": 11.535,
+    "end": 12.775,
+    "highlight": false
+  },
+  {
+    "text": "THE ONES WHO",
+    "start": 12.805,
+    "end": 14.046,
+    "highlight": false
+  },
+  {
+    "text": "LEARN AI WILL",
+    "start": 14.076,
+    "end": 15.316,
+    "highlight": true
+  },
+  {
+    "text": "CONTROL EVERYTHING.",
+    "start": 15.346,
+    "end": 16.173,
+    "highlight": true
+  }
+]

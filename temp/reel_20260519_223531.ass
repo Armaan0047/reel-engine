@@ -1,0 +1,29 @@
+[Script Info]
+Title: AI Reel Captions
+ScriptType: v4.00+
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+YCbCr Matrix: TV.709
+PlayResX: 1080
+PlayResY: 1920
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Arial Black,82,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,3,0,1,7,3,5,40,40,180,1
+Style: Hook,Arial Black,96,&H0001D7FF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,4,0,1,9,4,5,40,40,180,1
+Style: Highlight,Arial Black,88,&H0000CCFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,3,0,1,7,3,5,40,40,180,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.10,0:00:00.83,Hook,,0,0,0,,{\fad(144,127)\t(0,125,\fscx104\fscy104)\t(125,250,\fscx100\fscy100)}THEY LAUGHED
+Dialogue: 0,0:00:00.86,0:00:01.59,Hook,,0,0,0,,{\fad(144,127)\t(0,125,\fscx104\fscy104)\t(125,250,\fscx100\fscy100)}WHEN YOU
+Dialogue: 0,0:00:01.62,0:00:01.99,Default,,0,0,0,,{\fad(144,127)\t(0,125,\fscx104\fscy104)\t(125,250,\fscx100\fscy100)}SAID
+Dialogue: 0,0:00:02.02,0:00:02.75,Default,,0,0,0,,{\fad(144,127)\t(0,125,\fscx104\fscy104)\t(125,250,\fscx100\fscy100)}YOU WOULD
+Dialogue: 0,0:00:02.78,0:00:03.51,Highlight,,0,0,0,,{\fad(144,127)\t(0,125,\fscx104\fscy104)\t(125,250,\fscx100\fscy100)}BE RICH.
+Dialogue: 0,0:00:03.54,0:00:04.64,Default,,0,0,0,,{\fad(144,127)\t(0,125,\fscx104\fscy104)\t(125,250,\fscx100\fscy100)}THEY STOPPED LAUGHING
+Dialogue: 0,0:00:04.67,0:00:05.77,Default,,0,0,0,,{\fad(144,127)\t(0,125,\fscx104\fscy104)\t(125,250,\fscx100\fscy100)}WHEN YOU PULLED
+Dialogue: 0,0:00:05.80,0:00:06.90,Default,,0,0,0,,{\fad(144,127)\t(0,125,\fscx104\fscy104)\t(125,250,\fscx100\fscy100)}UP IN A
+Dialogue: 0,0:00:06.93,0:00:08.03,Highlight,,0,0,0,,{\fad(144,127)\t(0,125,\fscx104\fscy104)\t(125,250,\fscx100\fscy100)}LAMBORGHINI. SUCCESS IS
+Dialogue: 0,0:00:08.06,0:00:09.16,Default,,0,0,0,,{\fad(144,127)\t(0,125,\fscx104\fscy104)\t(125,250,\fscx100\fscy100)}THE BEST REVENGE.
+Dialogue: 0,0:00:09.19,0:00:10.29,Default,,0,0,0,,{\fad(144,127)\t(0,125,\fscx104\fscy104)\t(125,250,\fscx100\fscy100)}LET YOUR LIFESTYLE
+Dialogue: 0,0:00:10.32,0:00:11.42,Default,,0,0,0,,{\fad(144,127)\t(0,125,\fscx104\fscy104)\t(125,250,\fscx100\fscy100)}DO THE TALKING.

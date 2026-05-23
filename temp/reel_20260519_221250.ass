@@ -1,0 +1,31 @@
+[Script Info]
+Title: AI Reel Captions
+ScriptType: v4.00+
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+YCbCr Matrix: TV.709
+PlayResX: 1080
+PlayResY: 1920
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Arial Black,82,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,3,0,1,7,3,5,40,40,180,1
+Style: Hook,Arial Black,96,&H0000FFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,4,0,1,9,4,5,40,40,180,1
+Style: Highlight,Arial Black,88,&H0000DDFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,3,0,1,7,3,5,40,40,180,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.10,0:00:00.60,Hook,,0,0,0,,{\fad(25,16)\t(0,37,\fscx137\fscy137)\t(37,74,\fscx100\fscy100)}YOU
+Dialogue: 0,0:00:00.63,0:00:01.13,Hook,,0,0,0,,{\fad(25,16)\t(0,37,\fscx137\fscy137)\t(37,74,\fscx100\fscy100)}ARE
+Dialogue: 0,0:00:01.16,0:00:01.66,Default,,0,0,0,,{\fad(25,16)\t(0,37,\fscx137\fscy137)\t(37,74,\fscx100\fscy100)}BEING
+Dialogue: 0,0:00:01.69,0:00:02.19,Highlight,,0,0,0,,{\fad(25,16)\t(0,37,\fscx137\fscy137)\t(37,74,\fscx100\fscy100)}REPLACED
+Dialogue: 0,0:00:02.22,0:00:03.22,Highlight,,0,0,0,,{\fad(25,16)\t(0,37,\fscx137\fscy137)\t(37,74,\fscx100\fscy100)}RIGHT NOW.
+Dialogue: 0,0:00:03.25,0:00:04.76,Highlight,,0,0,0,,{\fad(25,16)\t(0,37,\fscx137\fscy137)\t(37,74,\fscx100\fscy100)}AI IS STUDYING
+Dialogue: 0,0:00:04.79,0:00:06.29,Default,,0,0,0,,{\fad(25,16)\t(0,37,\fscx137\fscy137)\t(37,74,\fscx100\fscy100)}YOUR JOB. YOUR
+Dialogue: 0,0:00:06.32,0:00:07.83,Default,,0,0,0,,{\fad(25,16)\t(0,37,\fscx137\fscy137)\t(37,74,\fscx100\fscy100)}PATTERNS. YOUR SKILLS.
+Dialogue: 0,0:00:07.86,0:00:09.36,Default,,0,0,0,,{\fad(25,16)\t(0,37,\fscx137\fscy137)\t(37,74,\fscx100\fscy100)}IN THREE YEARS,
+Dialogue: 0,0:00:09.39,0:00:10.90,Default,,0,0,0,,{\fad(25,16)\t(0,37,\fscx137\fscy137)\t(37,74,\fscx100\fscy100)}HALF OF TODAY'S
+Dialogue: 0,0:00:10.93,0:00:12.43,Default,,0,0,0,,{\fad(25,16)\t(0,37,\fscx137\fscy137)\t(37,74,\fscx100\fscy100)}JOBS WON'T EXIST.
+Dialogue: 0,0:00:12.46,0:00:13.97,Default,,0,0,0,,{\fad(25,16)\t(0,37,\fscx137\fscy137)\t(37,74,\fscx100\fscy100)}THIS ISN'T FEAR.
+Dialogue: 0,0:00:14.00,0:00:15.50,Default,,0,0,0,,{\fad(25,16)\t(0,37,\fscx137\fscy137)\t(37,74,\fscx100\fscy100)}THIS IS A
+Dialogue: 0,0:00:15.53,0:00:17.03,Default,,0,0,0,,{\fad(25,16)\t(0,37,\fscx137\fscy137)\t(37,74,\fscx100\fscy100)}FACT. CHOOSE WISELY.

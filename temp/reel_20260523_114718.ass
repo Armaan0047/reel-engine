@@ -1,0 +1,33 @@
+[Script Info]
+Title: AI Reel Captions
+ScriptType: v4.00+
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+YCbCr Matrix: TV.709
+PlayResX: 1080
+PlayResY: 1920
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Arial Black,82,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,3,0,1,7,3,5,40,40,180,1
+Style: Hook,Arial Black,96,&H0000FFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,4,0,1,9,4,5,40,40,180,1
+Style: Highlight,Arial Black,88,&H0000DDFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,3,0,1,7,3,5,40,40,180,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.10,0:00:00.68,Hook,,0,0,0,,{\fad(14,13)\t(0,28,\fscx122\fscy122)\t(28,56,\fscx100\fscy100)}MOST PEOPLE
+Dialogue: 0,0:00:00.71,0:00:01.00,Hook,,0,0,0,,{\fad(14,13)\t(0,28,\fscx122\fscy122)\t(28,56,\fscx100\fscy100)}WILL
+Dialogue: 0,0:00:01.03,0:00:01.32,Highlight,,0,0,0,,{\fad(14,13)\t(0,28,\fscx122\fscy122)\t(28,56,\fscx100\fscy100)}NEVER
+Dialogue: 0,0:00:01.35,0:00:01.93,Default,,0,0,0,,{\fad(14,13)\t(0,28,\fscx122\fscy122)\t(28,56,\fscx100\fscy100)}SIT IN
+Dialogue: 0,0:00:01.96,0:00:02.54,Default,,0,0,0,,{\fad(14,13)\t(0,28,\fscx122\fscy122)\t(28,56,\fscx100\fscy100)}A FIRST
+Dialogue: 0,0:00:02.57,0:00:02.86,Default,,0,0,0,,{\fad(14,13)\t(0,28,\fscx122\fscy122)\t(28,56,\fscx100\fscy100)}CLASS
+Dialogue: 0,0:00:02.89,0:00:03.18,Default,,0,0,0,,{\fad(14,13)\t(0,28,\fscx122\fscy122)\t(28,56,\fscx100\fscy100)}SEAT.
+Dialogue: 0,0:00:03.21,0:00:04.08,Default,,0,0,0,,{\fad(14,13)\t(0,28,\fscx122\fscy122)\t(28,56,\fscx100\fscy100)}MOST PEOPLE WILL
+Dialogue: 0,0:00:04.11,0:00:04.98,Highlight,,0,0,0,,{\fad(14,13)\t(0,28,\fscx122\fscy122)\t(28,56,\fscx100\fscy100)}NEVER DRIVE A
+Dialogue: 0,0:00:05.01,0:00:05.88,Default,,0,0,0,,{\fad(14,13)\t(0,28,\fscx122\fscy122)\t(28,56,\fscx100\fscy100)}CAR WORTH SIX
+Dialogue: 0,0:00:05.91,0:00:06.78,Default,,0,0,0,,{\fad(14,13)\t(0,28,\fscx122\fscy122)\t(28,56,\fscx100\fscy100)}FIGURES. NOT BECAUSE
+Dialogue: 0,0:00:06.81,0:00:07.69,Default,,0,0,0,,{\fad(14,13)\t(0,28,\fscx122\fscy122)\t(28,56,\fscx100\fscy100)}THEY CAN NOT
+Dialogue: 0,0:00:07.71,0:00:08.59,Default,,0,0,0,,{\fad(14,13)\t(0,28,\fscx122\fscy122)\t(28,56,\fscx100\fscy100)}AFFORD IT BUT
+Dialogue: 0,0:00:08.62,0:00:09.49,Default,,0,0,0,,{\fad(14,13)\t(0,28,\fscx122\fscy122)\t(28,56,\fscx100\fscy100)}BECAUSE THEY WERE
+Dialogue: 0,0:00:09.52,0:00:10.39,Highlight,,0,0,0,,{\fad(14,13)\t(0,28,\fscx122\fscy122)\t(28,56,\fscx100\fscy100)}NEVER TAUGHT TO
+Dialogue: 0,0:00:10.42,0:00:11.29,Default,,0,0,0,,{\fad(14,13)\t(0,28,\fscx122\fscy122)\t(28,56,\fscx100\fscy100)}THINK THAT BIG.

@@ -1,0 +1,80 @@
+[
+  {
+    "text": "HERE'S SOMETHING THEY DON'T",
+    "start": 0.1,
+    "end": 1.41,
+    "highlight": false
+  },
+  {
+    "text": "TEACH YOU IN SCHOOL.",
+    "start": 1.41,
+    "end": 2.72,
+    "highlight": false
+  },
+  {
+    "text": "AI ISN'T COMING TO",
+    "start": 2.67,
+    "end": 4.383,
+    "highlight": true
+  },
+  {
+    "text": "REPLACE YOU.",
+    "start": 4.383,
+    "end": 5.239,
+    "highlight": true
+  },
+  {
+    "text": "IT'S ALREADY HERE.",
+    "start": 5.239,
+    "end": 7.0,
+    "highlight": false
+  },
+  {
+    "text": "THE PEOPLE WHO LEARN",
+    "start": 7.0,
+    "end": 8.197,
+    "highlight": false
+  },
+  {
+    "text": "TO USE IT WILL",
+    "start": 8.197,
+    "end": 9.394,
+    "highlight": false
+  },
+  {
+    "text": "THRIVE.",
+    "start": 9.394,
+    "end": 9.693,
+    "highlight": true
+  },
+  {
+    "text": "THE ONES WHO IGNORE",
+    "start": 9.693,
+    "end": 11.037,
+    "highlight": false
+  },
+  {
+    "text": "IT WILL STRUGGLE.",
+    "start": 11.037,
+    "end": 12.045,
+    "highlight": true
+  },
+  {
+    "text": "THIS ISN'T A PREDICTION.",
+    "start": 12.045,
+    "end": 13.955,
+    "highlight": true
+  },
+  {
+    "text": "IT'S A FACT.",
+    "start": 13.955,
+    "end": 15.511,
+    "highlight": true
+  },
+  {
+    "text": "CHOOSE WISELY.",
+    "start": 15.511,
+    "end": 17.227,
+    "highlight": true
+  }
+]

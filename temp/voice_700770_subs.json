@@ -1,0 +1,80 @@
+[
+  {
+    "text": "MOST PEOPLE WILL",
+    "start": 0.1,
+    "end": 1.05,
+    "highlight": false
+  },
+  {
+    "text": "NEVER SIT IN",
+    "start": 1.08,
+    "end": 2.029,
+    "highlight": true
+  },
+  {
+    "text": "A FIRST CLASS",
+    "start": 2.059,
+    "end": 3.009,
+    "highlight": false
+  },
+  {
+    "text": "SEAT. MOST PEOPLE",
+    "start": 3.039,
+    "end": 3.989,
+    "highlight": false
+  },
+  {
+    "text": "WILL NEVER DRIVE",
+    "start": 4.019,
+    "end": 4.969,
+    "highlight": true
+  },
+  {
+    "text": "A CAR WORTH",
+    "start": 4.999,
+    "end": 5.948,
+    "highlight": false
+  },
+  {
+    "text": "SIX FIGURES. NOT",
+    "start": 5.978,
+    "end": 6.928,
+    "highlight": false
+  },
+  {
+    "text": "BECAUSE THEY CAN",
+    "start": 6.958,
+    "end": 7.908,
+    "highlight": false
+  },
+  {
+    "text": "NOT AFFORD IT",
+    "start": 7.938,
+    "end": 8.888,
+    "highlight": false
+  },
+  {
+    "text": "BUT BECAUSE THEY",
+    "start": 8.918,
+    "end": 9.867,
+    "highlight": false
+  },
+  {
+    "text": "WERE NEVER TAUGHT",
+    "start": 9.897,
+    "end": 10.847,
+    "highlight": true
+  },
+  {
+    "text": "TO THINK THAT",
+    "start": 10.877,
+    "end": 11.827,
+    "highlight": false
+  },
+  {
+    "text": "BIG.",
+    "start": 11.857,
+    "end": 12.174,
+    "highlight": false
+  }
+]

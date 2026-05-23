@@ -1,0 +1,32 @@
+[Script Info]
+Title: AI Reel Captions
+ScriptType: v4.00+
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+YCbCr Matrix: TV.709
+PlayResX: 1080
+PlayResY: 1920
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Arial Black,82,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,3,0,1,7,3,5,40,40,180,1
+Style: Hook,Arial Black,96,&H0001D7FF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,4,0,1,9,4,5,40,40,180,1
+Style: Highlight,Arial Black,88,&H0000CCFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,3,0,1,7,3,5,40,40,180,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.10,0:00:00.90,Hook,,0,0,0,,{\fad(170,111)\t(0,144,\fscx106\fscy106)\t(144,288,\fscx100\fscy100)}LOOK AT
+Dialogue: 0,0:00:00.93,0:00:01.33,Hook,,0,0,0,,{\fad(170,111)\t(0,144,\fscx106\fscy106)\t(144,288,\fscx100\fscy100)}THIS.
+Dialogue: 0,0:00:01.36,0:00:02.17,Default,,0,0,0,,{\fad(170,111)\t(0,144,\fscx106\fscy106)\t(144,288,\fscx100\fscy100)}THIS ISN'T
+Dialogue: 0,0:00:02.20,0:00:03.00,Default,,0,0,0,,{\fad(170,111)\t(0,144,\fscx106\fscy106)\t(144,288,\fscx100\fscy100)}LUCK. THIS
+Dialogue: 0,0:00:03.03,0:00:04.24,Default,,0,0,0,,{\fad(170,111)\t(0,144,\fscx106\fscy106)\t(144,288,\fscx100\fscy100)}IS OBSESSION. YOU
+Dialogue: 0,0:00:04.27,0:00:05.48,Default,,0,0,0,,{\fad(170,111)\t(0,144,\fscx106\fscy106)\t(144,288,\fscx100\fscy100)}DON'T GET THIS
+Dialogue: 0,0:00:05.51,0:00:06.72,Default,,0,0,0,,{\fad(170,111)\t(0,144,\fscx106\fscy106)\t(144,288,\fscx100\fscy100)}LIFESTYLE BY WORKING
+Dialogue: 0,0:00:06.75,0:00:07.95,Default,,0,0,0,,{\fad(170,111)\t(0,144,\fscx106\fscy106)\t(144,288,\fscx100\fscy100)}9 TO 5
+Dialogue: 0,0:00:07.98,0:00:09.19,Default,,0,0,0,,{\fad(170,111)\t(0,144,\fscx106\fscy106)\t(144,288,\fscx100\fscy100)}AND HOPING FOR
+Dialogue: 0,0:00:09.22,0:00:10.43,Default,,0,0,0,,{\fad(170,111)\t(0,144,\fscx106\fscy106)\t(144,288,\fscx100\fscy100)}A RAISE. YOU
+Dialogue: 0,0:00:10.46,0:00:11.67,Default,,0,0,0,,{\fad(170,111)\t(0,144,\fscx106\fscy106)\t(144,288,\fscx100\fscy100)}GET THIS BY
+Dialogue: 0,0:00:11.70,0:00:12.90,Highlight,,0,0,0,,{\fad(170,111)\t(0,144,\fscx106\fscy106)\t(144,288,\fscx100\fscy100)}TAKING INSANE RISKS
+Dialogue: 0,0:00:12.93,0:00:14.14,Default,,0,0,0,,{\fad(170,111)\t(0,144,\fscx106\fscy106)\t(144,288,\fscx100\fscy100)}AND OUTWORKING EVERYBODY
+Dialogue: 0,0:00:14.17,0:00:15.38,Default,,0,0,0,,{\fad(170,111)\t(0,144,\fscx106\fscy106)\t(144,288,\fscx100\fscy100)}ELSE. THE CHOICE
+Dialogue: 0,0:00:15.41,0:00:16.62,Highlight,,0,0,0,,{\fad(170,111)\t(0,144,\fscx106\fscy106)\t(144,288,\fscx100\fscy100)}IS LITERALLY YOURS.

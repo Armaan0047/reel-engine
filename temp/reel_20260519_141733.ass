@@ -1,0 +1,29 @@
+[Script Info]
+Title: AI Reel Captions
+ScriptType: v4.00+
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+YCbCr Matrix: TV.709
+PlayResX: 1080
+PlayResY: 1920
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Arial Black,82,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,3,0,1,7,3,5,40,40,180,1
+Style: Hook,Arial Black,96,&H0000FFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,4,0,1,9,4,5,40,40,180,1
+Style: Highlight,Arial Black,88,&H0000DDFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,3,0,1,7,3,5,40,40,180,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.10,0:00:01.36,Hook,,0,0,0,,{\fad(92,86)\t(0,112,\fscx110\fscy110)\t(112,224,\fscx100\fscy100)}HERE IS WHAT
+Dialogue: 0,0:00:01.39,0:00:02.66,Hook,,0,0,0,,{\fad(92,86)\t(0,112,\fscx110\fscy110)\t(112,224,\fscx100\fscy100)}IS COMING AND
+Dialogue: 0,0:00:02.69,0:00:03.95,Highlight,,0,0,0,,{\fad(92,86)\t(0,112,\fscx110\fscy110)\t(112,224,\fscx100\fscy100)}NOBODY IS READY.
+Dialogue: 0,0:00:03.98,0:00:05.25,Highlight,,0,0,0,,{\fad(92,86)\t(0,112,\fscx110\fscy110)\t(112,224,\fscx100\fscy100)}AI THAT THINKS
+Dialogue: 0,0:00:05.28,0:00:06.54,Default,,0,0,0,,{\fad(92,86)\t(0,112,\fscx110\fscy110)\t(112,224,\fscx100\fscy100)}FOR ITSELF. ROBOTS
+Dialogue: 0,0:00:06.57,0:00:07.84,Highlight,,0,0,0,,{\fad(92,86)\t(0,112,\fscx110\fscy110)\t(112,224,\fscx100\fscy100)}THAT BUILD OTHER
+Dialogue: 0,0:00:07.87,0:00:09.13,Default,,0,0,0,,{\fad(92,86)\t(0,112,\fscx110\fscy110)\t(112,224,\fscx100\fscy100)}ROBOTS. TECHNOLOGY THAT
+Dialogue: 0,0:00:09.16,0:00:10.43,Default,,0,0,0,,{\fad(92,86)\t(0,112,\fscx110\fscy110)\t(112,224,\fscx100\fscy100)}EVOLVES FASTER THAN
+Dialogue: 0,0:00:10.46,0:00:11.72,Default,,0,0,0,,{\fad(92,86)\t(0,112,\fscx110\fscy110)\t(112,224,\fscx100\fscy100)}HUMANS CAN ADAPT.
+Dialogue: 0,0:00:11.75,0:00:13.02,Highlight,,0,0,0,,{\fad(92,86)\t(0,112,\fscx110\fscy110)\t(112,224,\fscx100\fscy100)}THE FUTURE BELONGS
+Dialogue: 0,0:00:13.05,0:00:14.31,Default,,0,0,0,,{\fad(92,86)\t(0,112,\fscx110\fscy110)\t(112,224,\fscx100\fscy100)}TO THOSE WHO
+Dialogue: 0,0:00:14.34,0:00:15.19,Highlight,,0,0,0,,{\fad(92,86)\t(0,112,\fscx110\fscy110)\t(112,224,\fscx100\fscy100)}PREPARE TODAY.
