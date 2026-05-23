@@ -14,6 +14,7 @@ import os
 import random
 import subprocess
 import time
+import traceback
 
 from config import (
     VIDEOS_DIR, REELS_DIR, TEMP_DIR, MUSIC_DIR,
@@ -31,11 +32,88 @@ from voice_generator import generate_ass_subtitles
 #  TOPIC-AWARE VIDEO SELECTION
 # ══════════════════════════════════════════════════════════════════
 
+def _generate_synthetic_video(topic: str = "motivation") -> str:
+    """
+    Generate a synthetic background video via FFmpeg when no real
+    footage is available (e.g., Railway production).
+    Creates a 35-second animated gradient that looks acceptable.
+    Cached so it's only generated once per container lifetime.
+    """
+    os.makedirs(VIDEOS_DIR, exist_ok=True)
+    is_luxury = topic in LUXURY_TOPICS
+    label = "luxury" if is_luxury else "default"
+    synth_path = os.path.join(VIDEOS_DIR, f"synth_{label}.mp4")
+
+    if os.path.isfile(synth_path) and os.path.getsize(synth_path) > 50_000:
+        print(f"   ♻️  Reusing cached synthetic video: {label}")
+        return synth_path
+
+    print(f"   🎬 Generating synthetic background ({label})...")
+    dur = 40
+    w, h = OUTPUT_WIDTH, OUTPUT_HEIGHT
+
+    if is_luxury:
+        # Dark gold/amber gradient — luxury vibe
+        src = (
+            f"color=c=0x0A0A0A:s={w}x{h}:d={dur}:r=30[bg];"
+            f"color=c=0x1A0F00:s={w}x{h}:d={dur}:r=30,"
+            f"geq=r='clip(p(X\,Y)+2*sin(2*PI*T/8+X/200),0,255)'"
+            f":g='clip(p(X\,Y)+1*sin(2*PI*T/10+Y/300),0,255)'"
+            f":b='p(X\,Y)'[fg];"
+            f"[bg][fg]blend=all_mode=screen[out]"
+        )
+    else:
+        # Dark blue/teal animated noise — minecraft/gaming vibe
+        src = (
+            f"color=c=0x050A12:s={w}x{h}:d={dur}:r=30[bg];"
+            f"color=c=0x001020:s={w}x{h}:d={dur}:r=30,"
+            f"geq=r='clip(p(X\,Y)+3*sin(2*PI*T/6+X/150),0,255)'"
+            f":g='clip(p(X\,Y)+4*sin(2*PI*T/7+Y/200),0,255)'"
+            f":b='clip(p(X\,Y)+6*sin(2*PI*T/5+X/100),0,255)'[fg];"
+            f"[bg][fg]blend=all_mode=screen[out]"
+        )
+
+    cmd = [
+        FFMPEG_PATH, "-y",
+        "-filter_complex", src,
+        "-map", "[out]",
+        "-t", str(dur),
+        "-c:v", "libx264", "-preset", "ultrafast", "-crf", "28",
+        "-pix_fmt", "yuv420p",
+        synth_path,
+    ]
+
+    r = subprocess.run(cmd, capture_output=True, text=True, timeout=120)
+    if r.returncode != 0:
+        # Fallback: even simpler — just a solid color video
+        print(f"   ⚠️ Complex synth failed, using solid color fallback")
+        fallback_color = "0x1A0F00" if is_luxury else "0x050A12"
+        cmd2 = [
+            FFMPEG_PATH, "-y",
+            "-f", "lavfi", "-i", f"color=c={fallback_color}:s={w}x{h}:d={dur}:r=30",
+            "-c:v", "libx264", "-preset", "ultrafast", "-crf", "28",
+            "-pix_fmt", "yuv420p",
+            synth_path,
+        ]
+        r2 = subprocess.run(cmd2, capture_output=True, text=True, timeout=60)
+        if r2.returncode != 0:
+            print(f"   ❌ Synthetic video generation failed: {r2.stderr[-300:]}")
+            return None
+
+    if os.path.isfile(synth_path) and os.path.getsize(synth_path) > 10_000:
+        sz = os.path.getsize(synth_path) / (1024 * 1024)
+        print(f"   ✅ Synthetic video ready: {sz:.1f} MB")
+        return synth_path
+
+    return None
+
+
 def get_random_video(topic: str = None) -> str:
     """
     Select background video based on topic.
     Luxury topics → Luxury.mp4 (if exists)
     Everything else → random Minecraft gameplay
+    Falls back to synthetic video generation for production (Railway).
     """
     is_luxury = topic in LUXURY_TOPICS
 
@@ -43,17 +121,25 @@ def get_random_video(topic: str = None) -> str:
         luxury_path = os.path.join(VIDEOS_DIR, "Luxury.mp4")
         if os.path.isfile(luxury_path) and os.path.getsize(luxury_path) > 10_000:
             return luxury_path
-        print("   ⚠️ Luxury.mp4 not found → using Minecraft gameplay")
+        print("   ⚠️ Luxury.mp4 not found → trying other videos")
 
     valid = []
-    for f in os.listdir(VIDEOS_DIR):
-        fp = os.path.join(VIDEOS_DIR, f)
-        if (os.path.isfile(fp)
-            and f.lower().endswith((".mp4", ".mov", ".avi", ".mkv", ".webm"))
-            and not f.lower().endswith(".crswap")
-            and os.path.getsize(fp) > 10_000):
-            valid.append(fp)
-    return random.choice(valid) if valid else None
+    if os.path.isdir(VIDEOS_DIR):
+        for f in os.listdir(VIDEOS_DIR):
+            fp = os.path.join(VIDEOS_DIR, f)
+            if (os.path.isfile(fp)
+                and f.lower().endswith((".mp4", ".mov", ".avi", ".mkv", ".webm"))
+                and not f.lower().endswith(".crswap")
+                and not f.startswith("synth_")  # prefer real videos
+                and os.path.getsize(fp) > 10_000):
+                valid.append(fp)
+
+    if valid:
+        return random.choice(valid)
+
+    # No real videos available — generate synthetic (production mode)
+    print("   ⚠️ No background videos found → generating synthetic video")
+    return _generate_synthetic_video(topic=topic)
 
 
 def is_luxury_topic(topic: str) -> bool:

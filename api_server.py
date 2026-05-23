@@ -14,6 +14,7 @@ import asyncio
 import os
 import sys
 import time
+import traceback
 import uuid
 from typing import Optional
 
@@ -91,13 +92,16 @@ async def _run_generation(job_id: str, topic: str):
     try:
         jobs[job_id]["status"] = "generating"
         jobs[job_id]["progress"] = 15
+        print(f"[JOB {job_id}] Starting generation for topic: {topic}")
 
         from main import generate_one_reel
 
         jobs[job_id]["progress"] = 30
         jobs[job_id]["status"] = "generating"
+        print(f"[JOB {job_id}] Pipeline imported, launching generate_one_reel...")
 
         reel_path = await generate_one_reel(force_topic=topic)
+        print(f"[JOB {job_id}] generate_one_reel returned: {reel_path}")
 
         if reel_path and os.path.exists(reel_path):
             filename = os.path.basename(reel_path)
@@ -111,18 +115,24 @@ async def _run_generation(job_id: str, topic: str):
                 "downloadUrl": f"{BASE_URL}/api/reels/{filename}",
                 "thumbnailUrl": f"{BASE_URL}/api/reels/{filename}#t=0.1"
             })
+            print(f"[JOB {job_id}] ✅ Complete: {filename} ({size_mb} MB)")
         else:
+            err_msg = "No reel produced — likely missing background video or voice generation failed"
             jobs[job_id].update({
                 "status": "error",
                 "progress": 0,
-                "error": "Render failed — all tiers exhausted",
+                "error": err_msg,
             })
+            print(f"[JOB {job_id}] ❌ {err_msg}")
 
     except Exception as e:
+        err_detail = f"{type(e).__name__}: {e}"
+        print(f"[JOB {job_id}] ❌ EXCEPTION: {err_detail}")
+        traceback.print_exc()
         jobs[job_id].update({
             "status": "error",
             "progress": 0,
-            "error": str(e),
+            "error": err_detail,
         })
 
 
@@ -228,11 +238,35 @@ def download_reel(name: str):
 
 @app.get("/api/health")
 def health():
+    from config import VIDEOS_DIR, VOICES_DIR, TEMP_DIR, FFMPEG_PATH
+    import subprocess
+
+    # Check FFmpeg
+    ffmpeg_ok = False
+    try:
+        r = subprocess.run([FFMPEG_PATH, "-version"], capture_output=True, text=True, timeout=5)
+        ffmpeg_ok = r.returncode == 0
+    except Exception:
+        pass
+
+    # Count files in critical directories
+    def count_files(d):
+        if not os.path.isdir(d):
+            return 0
+        return len([f for f in os.listdir(d) if os.path.isfile(os.path.join(d, f))])
+
     return {
         "status": "ok",
-        "version": "4.0",
+        "version": "4.1",
         "engine": "AI Reel Agent",
-        "reels_dir": REELS_DIR,
+        "ffmpeg": ffmpeg_ok,
+        "directories": {
+            "videos": count_files(VIDEOS_DIR),
+            "reels": count_files(REELS_DIR),
+            "voices": count_files(VOICES_DIR),
+            "temp": count_files(TEMP_DIR),
+        },
+        "base_url": BASE_URL,
     }
 
 
