@@ -36,6 +36,7 @@ from config import (
     REELS_DIR, TOPIC_KEYWORDS, LUXURY_TOPICS,
     VOICE_PROFILES, VIRAL_SCRIPTS,
 )
+import font_config  # initialize fontconfig for Railway/Linux
 
 app = FastAPI(
     title="REEL ENGINE API",

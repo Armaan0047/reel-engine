@@ -26,6 +26,7 @@ from config import (
     MUSIC_SYNTH_PARAMS, MUSIC_MIX_VOLUME,
 )
 from voice_generator import generate_ass_subtitles
+import font_config  # ensures fontconfig is initialized on import
 
 
 # ══════════════════════════════════════════════════════════════════
@@ -486,7 +487,7 @@ def _render_tier1(video, audio, music, ass, out, dur, offset,
         f"eq=contrast={contrast}:saturation={sat}:brightness={bright},"
         f"unsharp=5:5:{sharpen}:5:5:0,"
         f"vignette=PI/{vignette},"
-        f"ass='{_esc(ass)}'"
+        f"ass={_build_ass_filter(ass)}"
     )
 
     # Audio: voice + background music ducking
@@ -544,7 +545,7 @@ def _render_tier2(video, audio, music, ass, out, dur, offset, luxury, landscape)
 
     w, h = OUTPUT_WIDTH, OUTPUT_HEIGHT
     scale = _build_scale_filter(w, h, landscape)
-    vf = f"{scale},fps={OUTPUT_FPS},ass='{_esc(ass)}'"
+    vf = f"{scale},fps={OUTPUT_FPS},{_build_ass_filter(ass)}"
 
     # Dynamic subtle music mix (6% to 10%)
     mv = round(random.uniform(0.06, 0.10), 3)
@@ -632,3 +633,15 @@ def _get_duration(path):
 def _esc(path):
     """Escape path for FFmpeg filter strings."""
     return path.replace("\\", "/").replace(":", "\\:")
+
+
+def _build_ass_filter(ass_path):
+    """
+    Build the FFmpeg ASS subtitle filter string.
+    On Linux, includes fontsdir so libass can find fonts without fontconfig.
+    """
+    escaped = _esc(ass_path)
+    if font_config.FONT_PATH:
+        fonts_dir = _esc(os.path.dirname(font_config.FONT_PATH))
+        return f"'{escaped}':fontsdir='{fonts_dir}'"
+    return f"'{escaped}'"

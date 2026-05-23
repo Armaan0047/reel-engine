@@ -23,6 +23,7 @@ from config import (
     ELEVENLABS_API_KEY, ELEVENLABS_VOICES, ELEVENLABS_MODEL,
     get_random_script, detect_topic,
 )
+from font_config import FONT_NAME
 
 # ── Optional ElevenLabs import ────────────────────────────────────
 _ELEVEN_AVAILABLE = False
@@ -423,9 +424,9 @@ PlayResY: 1920
 
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
-Style: Default,Arial Black,{fs},&H00FFFFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,3,0,1,{ow},3,{al},40,40,{mv},1
-Style: Hook,Arial Black,{fs+14},{hook_color},&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,4,0,1,{ow+2},4,{al},40,40,{mv},1
-Style: Highlight,Arial Black,{fs+6},{hl_color},&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,3,0,1,{ow},3,{al},40,40,{mv},1
+Style: Default,{FONT_NAME},{fs},&H00FFFFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,3,0,1,{ow},3,{al},40,40,{mv},1
+Style: Hook,{FONT_NAME},{fs+14},{hook_color},&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,4,0,1,{ow+2},4,{al},40,40,{mv},1
+Style: Highlight,{FONT_NAME},{fs+6},{hl_color},&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,3,0,1,{ow},3,{al},40,40,{mv},1
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
