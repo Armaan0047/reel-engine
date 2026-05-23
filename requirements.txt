@@ -1,4 +1,9 @@
-# Core dependencies
+# Core API server
+fastapi
+uvicorn[standard]
+pydantic
+
+# Voice synthesis
 edge-tts
 imageio-ffmpeg
 
