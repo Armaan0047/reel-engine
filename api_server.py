@@ -22,6 +22,10 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 if PROJECT_ROOT not in sys.path:
     sys.path.insert(0, PROJECT_ROOT)
 
+# ─── Production URL config ────────────────────────────────────────
+# Set PUBLIC_BACKEND_URL on Railway; defaults to localhost for dev
+BASE_URL = os.getenv("PUBLIC_BACKEND_URL", "http://localhost:8000")
+
 from fastapi import FastAPI, BackgroundTasks, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
@@ -38,10 +42,16 @@ app = FastAPI(
     description="API bridge for the AI Reel Agent cinematic engine",
 )
 
-# CORS for Next.js dev server
+# CORS — dev + production origins
+CORS_ORIGINS = [
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+    "https://reel-engine.vercel.app",
+]
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "http://127.0.0.1:3000"],
+    allow_origins=CORS_ORIGINS,
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -97,9 +107,9 @@ async def _run_generation(job_id: str, topic: str):
                 "progress": 100,
                 "output_path": reel_path,
                 "size_mb": size_mb,
-                "videoUrl": f"http://localhost:8000/api/reels/{filename}",
-                "downloadUrl": f"http://localhost:8000/api/reels/{filename}",
-                "thumbnailUrl": f"http://localhost:8000/api/reels/{filename}#t=0.1"
+                "videoUrl": f"{BASE_URL}/api/reels/{filename}",
+                "downloadUrl": f"{BASE_URL}/api/reels/{filename}",
+                "thumbnailUrl": f"{BASE_URL}/api/reels/{filename}#t=0.1"
             })
         else:
             jobs[job_id].update({
@@ -195,9 +205,9 @@ def list_reels():
                     "progress": 100,
                     "sizeMB": round(os.path.getsize(fp) / (1024 * 1024), 1),
                     "created": os.path.getctime(fp),
-                    "videoUrl": f"http://localhost:8000/api/reels/{f}",
-                    "downloadUrl": f"http://localhost:8000/api/reels/{f}",
-                    "thumbnailUrl": f"http://localhost:8000/api/reels/{f}#t=0.1",
+                    "videoUrl": f"{BASE_URL}/api/reels/{f}",
+                    "downloadUrl": f"{BASE_URL}/api/reels/{f}",
+                    "thumbnailUrl": f"{BASE_URL}/api/reels/{f}#t=0.1",
                 })
     return {"reels": reels}
 

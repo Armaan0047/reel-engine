@@ -25,6 +25,8 @@ export type ReelJob = {
 
 export type StudioView = "generate" | "history";
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+
 export default function StudioPage() {
   const [view, setView] = useState<StudioView>("generate");
   const [sidebarOpen, setSidebarOpen] = useState(true);
@@ -36,7 +38,7 @@ export default function StudioPage() {
   useEffect(() => {
     async function loadReels() {
       try {
-        const res = await fetch("http://localhost:8000/api/reels");
+        const res = await fetch(`${API_URL}/api/reels`);
         if (res.ok) {
           const data = await res.json();
           if (data && Array.isArray(data.reels)) {
@@ -81,7 +83,7 @@ export default function StudioPage() {
 
     const interval = setInterval(async () => {
       try {
-        const res = await fetch("http://localhost:8000/api/jobs");
+        const res = await fetch(`${API_URL}/api/jobs`);
         if (res.ok) {
           const data = await res.json();
           if (data && Array.isArray(data.jobs)) {
@@ -141,7 +143,7 @@ export default function StudioPage() {
     style: string;
   }) => {
     try {
-      const res = await fetch("http://localhost:8000/api/generate", {
+      const res = await fetch(`${API_URL}/api/generate`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
