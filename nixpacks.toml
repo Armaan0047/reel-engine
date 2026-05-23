@@ -2,7 +2,7 @@
 # Installs system-level font packages required by FFmpeg's libass subtitle filter
 
 [phases.setup]
-aptPkgs = ["fontconfig", "fonts-dejavu-core", "fonts-dejavu-extra"]
+aptPkgs = ["fontconfig", "fonts-dejavu-core", "fonts-dejavu-extra", "fonts-liberation"]
 
-[phases.build]
-cmds = ["fc-cache -fv 2>/dev/null || true"]
+[phases.install]
+cmds = ["pip install -r requirements.txt", "fc-cache -fv 2>/dev/null || true"]

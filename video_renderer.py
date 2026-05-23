@@ -487,7 +487,7 @@ def _render_tier1(video, audio, music, ass, out, dur, offset,
         f"eq=contrast={contrast}:saturation={sat}:brightness={bright},"
         f"unsharp=5:5:{sharpen}:5:5:0,"
         f"vignette=PI/{vignette},"
-        f"ass={_build_ass_filter(ass)}"
+        f"{_build_ass_filter(ass)}"
     )
 
     # Audio: voice + background music ducking
@@ -527,11 +527,7 @@ def _render_tier1(video, audio, music, ass, out, dur, offset,
         return True
 
     # Log FFmpeg error for debugging
-    if r.stderr:
-        err_lines = [l for l in r.stderr.split("\n") if "Error" in l or "error" in l]
-        for el in err_lines[:3]:
-            print(f"   FFmpeg: {el.strip()}")
-
+    _log_ffmpeg_error(r, "Tier 1")
     print(f"   ⚠️ Tier 1 failed → trying Tier 2...")
     return False
 
@@ -545,7 +541,7 @@ def _render_tier2(video, audio, music, ass, out, dur, offset, luxury, landscape)
 
     w, h = OUTPUT_WIDTH, OUTPUT_HEIGHT
     scale = _build_scale_filter(w, h, landscape)
-    vf = f"{scale},fps={OUTPUT_FPS},{_build_ass_filter(ass)}"
+    vf = f"{scale},fps={OUTPUT_FPS},{_build_ass_filter(ass)}"  # ass filter with fontsdir
 
     # Dynamic subtle music mix (6% to 10%)
     mv = round(random.uniform(0.06, 0.10), 3)
@@ -577,30 +573,34 @@ def _render_tier2(video, audio, music, ass, out, dur, offset, luxury, landscape)
         print(f"   ✅ Tier 2 (simplified): {sz:.1f} MB")
         return True
 
+    _log_ffmpeg_error(r, "Tier 2")
     print(f"   ⚠️ Tier 2 failed → trying Tier 3...")
     return False
 
 
 def _render_tier3(video, audio, out, dur, offset, landscape):
-    """Tier 3: Emergency — no subs, no music, just properly scaled video + voice."""
-    print(f"   Rendering (Tier 3: emergency)...")
+    """
+    Tier 3: Emergency — no subtitles, no music.
+    Uses simple -vf (not -filter_complex) for maximum compatibility.
+    Just properly scaled video + voice audio.
+    """
+    print(f"   Rendering (Tier 3: emergency, no subs)...")
 
     w, h = OUTPUT_WIDTH, OUTPUT_HEIGHT
     scale = _build_scale_filter(w, h, landscape)
     vf = f"{scale},fps={OUTPUT_FPS}"
-    
-    fc = f"[0:v]{vf}[vout]"
 
     cmd = [
         FFMPEG_PATH, "-y",
         "-stream_loop", "-1", "-ss", str(offset), "-i", video,
         "-i", audio,
-        "-filter_complex", fc,
-        "-map", "[vout]", "-map", "1:a",
+        "-vf", vf,
+        "-map", "0:v", "-map", "1:a",
         "-t", str(dur),
         "-c:v", "libx264", "-preset", "fast", "-crf", "22",
         "-c:a", "aac", "-b:a", "128k",
-        "-pix_fmt", "yuv420p", "-movflags", "+faststart", out,
+        "-pix_fmt", "yuv420p", "-movflags", "+faststart",
+        "-shortest", out,
     ]
 
     r = subprocess.run(cmd, capture_output=True, text=True)
@@ -609,6 +609,7 @@ def _render_tier3(video, audio, out, dur, offset, landscape):
         print(f"   ✅ Tier 3 (emergency): {sz:.1f} MB")
         return True
 
+    _log_ffmpeg_error(r, "Tier 3")
     print(f"   ❌ All render tiers failed!")
     return False
 
@@ -632,16 +633,50 @@ def _get_duration(path):
 
 def _esc(path):
     """Escape path for FFmpeg filter strings."""
-    return path.replace("\\", "/").replace(":", "\\:")
+    return path.replace("\\", "/").replace(":", "\\:").replace("'", "\\'")
 
 
 def _build_ass_filter(ass_path):
     """
     Build the FFmpeg ASS subtitle filter string.
-    On Linux, includes fontsdir so libass can find fonts without fontconfig.
+    On Linux, includes fontsdir so libass can find fonts.
+
+    Returns the full filter expression like:
+      ass=path/to/file.ass:fontsdir=path/to/fonts
+    NO quotes — FFmpeg filter_complex handles escaping via backslashes.
     """
     escaped = _esc(ass_path)
-    if font_config.FONT_PATH:
+
+    # Verify ASS file actually exists
+    if not os.path.isfile(ass_path):
+        print(f"   ⚠️ ASS file not found: {ass_path}")
+        return f"null"  # passthrough — skip subtitles
+
+    if font_config.FONT_PATH and os.path.isfile(font_config.FONT_PATH):
         fonts_dir = _esc(os.path.dirname(font_config.FONT_PATH))
-        return f"'{escaped}':fontsdir='{fonts_dir}'"
-    return f"'{escaped}'"
+        filt = f"ass={escaped}:fontsdir={fonts_dir}"
+        print(f"   [ASS] Filter: {filt[:80]}...")
+        return filt
+
+    # No font path — try without fontsdir (relies on system fontconfig)
+    return f"ass={escaped}"
+
+
+def _log_ffmpeg_error(result, tier_name):
+    """Log FFmpeg stderr for debugging render failures."""
+    if not result.stderr:
+        print(f"   [{tier_name}] No stderr output")
+        return
+    # Print all error/warning lines
+    lines = result.stderr.strip().split("\n")
+    err_lines = [l for l in lines if any(k in l.lower() for k in ["error", "fail", "cannot", "invalid", "no such"])]
+    if err_lines:
+        print(f"   [{tier_name}] FFmpeg errors:")
+        for el in err_lines[:8]:
+            print(f"     {el.strip()}")
+    else:
+        # Print last few lines of stderr as context
+        print(f"   [{tier_name}] FFmpeg stderr (last 5 lines):")
+        for el in lines[-5:]:
+            if el.strip():
+                print(f"     {el.strip()}")
