@@ -258,7 +258,7 @@ def health():
 
     return {
         "status": "ok",
-        "version": "4.1",
+        "version": "4.2-fixed-relative-paths",
         "engine": "AI Reel Agent",
         "ffmpeg": ffmpeg_ok,
         "directories": {
