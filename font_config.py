@@ -1,96 +1,40 @@
 """
 Font configuration for headless Linux (Railway/Docker).
-Ensures fontconfig is properly initialized and a usable font is available
-for FFmpeg's ASS subtitle filter.
 
-This module MUST be imported before any FFmpeg subprocess calls.
+Strategy:
+  1. ALWAYS set FONTCONFIG_FILE to our committed fonts/fonts.conf
+  2. Use bundled font (fonts/bundled_font.ttf) as primary — no system dependency
+  3. If system fonts exist (DejaVu from apt), prefer those but don't require them
+  4. Export FONT_NAME (for ASS styles) and FONT_PATH (for fontsdir/fontfile)
+
+This module is imported at startup by api_server.py and video_renderer.py.
 """
 import os
 import subprocess
+import shutil
 
-# ─── Detect project paths ────────────────────────────────────────
+# ─── Project paths ────────────────────────────────────────────────
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 FONTS_DIR = os.path.join(PROJECT_ROOT, "fonts")
-os.makedirs(FONTS_DIR, exist_ok=True)
+BUNDLED_FONT = os.path.join(FONTS_DIR, "bundled_font.ttf")
+FONTS_CONF = os.path.join(FONTS_DIR, "fonts.conf")
 
 
 def _is_linux():
     return os.name == "posix"
 
 
-def _find_system_font():
-    """Find a usable bold sans-serif font on the system."""
-    search_paths = [
-        "/usr/share/fonts",
-        "/usr/local/share/fonts",
-        os.path.join(PROJECT_ROOT, "fonts"),
-    ]
-
-    preferred = [
-        "DejaVuSans-Bold.ttf",
-        "DejaVuSans.ttf",
-        "LiberationSans-Bold.ttf",
-        "LiberationSans-Regular.ttf",
-        "FreeSansBold.ttf",
-        "NotoSans-Bold.ttf",
-        "NotoSans-Regular.ttf",
-    ]
-
-    for base in search_paths:
-        if not os.path.isdir(base):
-            continue
-        for root, _dirs, files in os.walk(base):
-            for pref in preferred:
-                if pref in files:
-                    return os.path.join(root, pref)
-
-    # Last resort: find ANY .ttf file
-    for base in search_paths:
-        if not os.path.isdir(base):
-            continue
-        for root, _dirs, files in os.walk(base):
-            for f in files:
-                if f.lower().endswith(".ttf"):
-                    return os.path.join(root, f)
-
-    return None
-
-
-def _create_fontconfig(font_path):
+def _setup_fontconfig():
     """
-    Create a minimal fonts.conf that fontconfig can load.
-    Sets env vars so FFmpeg subprocess inherits them.
+    Point FONTCONFIG_FILE to our committed fonts.conf.
+    This MUST happen before any FFmpeg/libass call.
     """
-    conf_dir = os.path.join(PROJECT_ROOT, "fonts")
-    os.makedirs(conf_dir, exist_ok=True)
-    conf_path = os.path.join(conf_dir, "fonts.conf")
-    font_dir = os.path.dirname(font_path)
-
-    conf_content = f"""<?xml version="1.0"?>
-<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
-<fontconfig>
-  <dir>{font_dir}</dir>
-  <dir>{conf_dir}</dir>
-  <dir>/usr/share/fonts</dir>
-  <dir>/usr/local/share/fonts</dir>
-  <cachedir>/tmp/fontconfig-cache</cachedir>
-  <match target="pattern">
-    <test qual="any" name="family"><string>Arial Black</string></test>
-    <edit name="family" mode="assign" binding="same"><string>DejaVu Sans</string></edit>
-  </match>
-  <match target="pattern">
-    <test qual="any" name="family"><string>Arial</string></test>
-    <edit name="family" mode="assign" binding="same"><string>DejaVu Sans</string></edit>
-  </match>
-</fontconfig>
-"""
-    with open(conf_path, "w") as f:
-        f.write(conf_content)
-
-    # Set env vars — these are inherited by subprocess (FFmpeg)
-    os.environ["FONTCONFIG_FILE"] = conf_path
-    os.environ["FONTCONFIG_PATH"] = conf_dir
-    os.environ["FC_CONFIG_DIR"] = conf_dir
+    if os.path.isfile(FONTS_CONF):
+        os.environ["FONTCONFIG_FILE"] = FONTS_CONF
+        os.environ["FONTCONFIG_PATH"] = FONTS_DIR
+        print(f"[FONTS] FONTCONFIG_FILE = {FONTS_CONF}")
+    else:
+        print(f"[FONTS] WARNING: fonts.conf not found at {FONTS_CONF}")
 
     # Ensure cache dir exists
     try:
@@ -98,92 +42,99 @@ def _create_fontconfig(font_path):
     except OSError:
         pass
 
-    print(f"[FONTS] fontconfig → {conf_path}")
-    print(f"[FONTS] FONTCONFIG_FILE = {conf_path}")
-    return conf_path
+
+def _find_best_font():
+    """
+    Find the best available font. Priority:
+      1. System DejaVuSans-Bold.ttf (installed by nixpacks apt)
+      2. Bundled font from repo (fonts/bundled_font.ttf)
+      3. Any .ttf on the system
+    Returns (font_path, font_name_for_ass).
+    """
+    # Priority 1: System DejaVu (best quality, matches ASS font name perfectly)
+    system_candidates = [
+        ("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", "DejaVu Sans"),
+        ("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", "DejaVu Sans"),
+        ("/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf", "Liberation Sans"),
+        ("/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf", "Liberation Sans"),
+    ]
+    for path, name in system_candidates:
+        if os.path.isfile(path):
+            print(f"[FONTS] Found system font: {path}")
+            # Copy to project dir so fontsdir always works
+            local = os.path.join(FONTS_DIR, os.path.basename(path))
+            if not os.path.isfile(local):
+                try:
+                    shutil.copy2(path, local)
+                    print(f"[FONTS] Copied to project: {local}")
+                except Exception:
+                    local = path
+            return local, name
+
+    # Priority 2: Bundled font (committed to repo)
+    if os.path.isfile(BUNDLED_FONT) and os.path.getsize(BUNDLED_FONT) > 10000:
+        print(f"[FONTS] Using bundled font: {BUNDLED_FONT}")
+        return BUNDLED_FONT, "Arial"
+
+    # Priority 3: Walk system font directories
+    for search_dir in ["/usr/share/fonts", "/usr/local/share/fonts"]:
+        if not os.path.isdir(search_dir):
+            continue
+        for root, _, files in os.walk(search_dir):
+            for f in files:
+                if f.lower().endswith(".ttf"):
+                    full = os.path.join(root, f)
+                    base = os.path.splitext(f)[0]
+                    print(f"[FONTS] Found fallback font: {full}")
+                    return full, base
+
+    print("[FONTS] ⚠ No fonts found anywhere!")
+    return None, "DejaVu Sans"
 
 
 def _run_fc_cache():
-    """Run fc-cache to rebuild font index."""
+    """Rebuild fontconfig cache if fc-cache is available."""
     try:
         r = subprocess.run(
-            ["fc-cache", "-fv"],
-            capture_output=True, text=True, timeout=30,
+            ["fc-cache", "-f", FONTS_DIR],
+            capture_output=True, text=True, timeout=15,
         )
         if r.returncode == 0:
-            print("[FONTS] fc-cache completed OK")
-        else:
-            print(f"[FONTS] fc-cache returned {r.returncode}")
-    except FileNotFoundError:
-        print("[FONTS] fc-cache not found — fontconfig may not be installed")
-    except subprocess.TimeoutExpired:
-        print("[FONTS] fc-cache timed out")
-
-
-def _copy_font_to_project(font_path):
-    """
-    Copy the system font into the project fonts/ directory.
-    This ensures the font is always findable even if system paths change.
-    """
-    dest = os.path.join(FONTS_DIR, os.path.basename(font_path))
-    if os.path.isfile(dest):
-        return dest
-    try:
-        import shutil
-        shutil.copy2(font_path, dest)
-        print(f"[FONTS] Copied font to project: {dest}")
-        return dest
-    except Exception as e:
-        print(f"[FONTS] Could not copy font: {e}")
-        return font_path
+            print("[FONTS] fc-cache OK")
+    except (FileNotFoundError, subprocess.TimeoutExpired):
+        pass  # Not critical — fontsdir handles font lookup
 
 
 def init_fonts():
     """
-    Initialize font system for production.
-    Returns (font_name_for_ass, font_path_or_none).
-
-    On Windows/dev: returns ("Arial Black", None)
-    On Linux/Railway: sets up fontconfig, finds font, copies to project dir
+    Initialize font system. Called once at module import.
+    Returns (font_name_for_ass, absolute_font_path_or_none).
     """
     if not _is_linux():
         return "Arial Black", None
 
     print("[FONTS] ═══════════════════════════════════════")
-    print("[FONTS] Initializing font system for Linux...")
+    print("[FONTS] Initializing for Linux/Railway...")
 
-    font_path = _find_system_font()
+    # Step 1: Set up fontconfig env vars (critical — must be first)
+    _setup_fontconfig()
+
+    # Step 2: Find best available font
+    font_path, ass_name = _find_best_font()
+
     if font_path:
-        # Copy to project dir for guaranteed access
-        local_path = _copy_font_to_project(font_path)
-
-        font_name = os.path.splitext(os.path.basename(local_path))[0]
-        name_map = {
-            "DejaVuSans-Bold": "DejaVu Sans",
-            "DejaVuSans": "DejaVu Sans",
-            "LiberationSans-Bold": "Liberation Sans",
-            "LiberationSans-Regular": "Liberation Sans",
-            "FreeSansBold": "FreeSans",
-            "NotoSans-Bold": "Noto Sans",
-            "NotoSans-Regular": "Noto Sans",
-        }
-        ass_name = name_map.get(font_name, font_name)
-        print(f"[FONTS] System font: {font_path}")
-        print(f"[FONTS] Local copy:  {local_path}")
-        print(f"[FONTS] ASS name:    {ass_name}")
-
-        _create_fontconfig(local_path)
+        # Step 3: Rebuild font cache pointing to our fonts dir
         _run_fc_cache()
 
-        print(f"[FONTS] Font dir:    {os.path.dirname(local_path)}")
+        print(f"[FONTS] ASS font name: {ass_name}")
+        print(f"[FONTS] Font file:     {font_path}")
+        print(f"[FONTS] Fonts dir:     {FONTS_DIR}")
         print("[FONTS] ═══════════════════════════════════════")
-        return ass_name, local_path
-    else:
-        print("[FONTS] ⚠️ No system fonts found!")
-        print("[FONTS] Subtitle rendering will be SKIPPED")
-        print("[FONTS] ═══════════════════════════════════════")
-        return "DejaVu Sans", None
+        return ass_name, font_path
+
+    print("[FONTS] ═══════════════════════════════════════")
+    return "DejaVu Sans", None
 
 
-# ─── Module-level initialization ──────────────────────────────────
+# ─── Module-level init (runs once on import) ──────────────────────
 FONT_NAME, FONT_PATH = init_fonts()

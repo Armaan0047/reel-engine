@@ -8,7 +8,7 @@ Features:
   - FFmpeg-synthesized ambient background music per topic
   - Music + voice ducking (voice always crystal clear)
   - Render validation (detects black frames, auto-retries)
-  - 3-tier render fallback
+  - 4-tier render fallback (full → simplified → drawtext → emergency)
 """
 import os
 import random
@@ -58,9 +58,9 @@ def _generate_synthetic_video(topic: str = "motivation") -> str:
         src = (
             f"color=c=0x0A0A0A:s={w}x{h}:d={dur}:r=30[bg];"
             f"color=c=0x1A0F00:s={w}x{h}:d={dur}:r=30,"
-            f"geq=r='clip(p(X\,Y)+2*sin(2*PI*T/8+X/200),0,255)'"
-            f":g='clip(p(X\,Y)+1*sin(2*PI*T/10+Y/300),0,255)'"
-            f":b='p(X\,Y)'[fg];"
+            f"geq=r='clip(p(X\\,Y)+2*sin(2*PI*T/8+X/200),0,255)'"
+            f":g='clip(p(X\\,Y)+1*sin(2*PI*T/10+Y/300),0,255)'"
+            f":b='p(X\\,Y)'[fg];"
             f"[bg][fg]blend=all_mode=screen[out]"
         )
     else:
@@ -68,9 +68,9 @@ def _generate_synthetic_video(topic: str = "motivation") -> str:
         src = (
             f"color=c=0x050A12:s={w}x{h}:d={dur}:r=30[bg];"
             f"color=c=0x001020:s={w}x{h}:d={dur}:r=30,"
-            f"geq=r='clip(p(X\,Y)+3*sin(2*PI*T/6+X/150),0,255)'"
-            f":g='clip(p(X\,Y)+4*sin(2*PI*T/7+Y/200),0,255)'"
-            f":b='clip(p(X\,Y)+6*sin(2*PI*T/5+X/100),0,255)'[fg];"
+            f"geq=r='clip(p(X\\,Y)+3*sin(2*PI*T/6+X/150),0,255)'"
+            f":g='clip(p(X\\,Y)+4*sin(2*PI*T/7+Y/200),0,255)'"
+            f":b='clip(p(X\\,Y)+6*sin(2*PI*T/5+X/100),0,255)'[fg];"
             f"[bg][fg]blend=all_mode=screen[out]"
         )
 
@@ -338,6 +338,7 @@ def render_reel(video_path, audio_path, subtitle_data, output_name,
     """
     Render a complete viral reel with visuals, voice, music, and subtitles.
     Detects source orientation and applies correct scaling strategy.
+    Uses a 4-tier fallback: full → simplified → drawtext → emergency.
     """
     luxury = is_luxury_topic(topic)
     style  = RENDER_STYLE_LUXURY if luxury else RENDER_STYLE_MINECRAFT
@@ -380,18 +381,20 @@ def render_reel(video_path, audio_path, subtitle_data, output_name,
     print(f"   Color      : contrast={contrast} sat={saturation}")
     print(f"   Music      : {os.path.basename(music_path)} @ {int(MUSIC_MIX_VOLUME*100)}%")
     print(f"   Output     : {output_name}.mp4")
+    print(f"   Font       : {font_config.FONT_NAME} → {font_config.FONT_PATH or 'system'}")
+    print(f"   ASS file   : {ass_path} (exists={os.path.isfile(ass_path)})")
 
-    # Try rendering tiers with validation
+    # ── Tier 1: Full effects + ASS subtitles ──
     ok = _render_tier1(video_path, audio_path, music_path, ass_path,
                        reel_path, reel_dur, offset, zoom,
                        contrast, saturation, brightness, vignette, sharpen,
                        luxury, landscape)
 
-    # Validate — if black screen, skip to Tier 2
     if ok and not _validate_render(reel_path):
         print(f"   ⚠️ Tier 1 rendered but FAILED validation → retrying Tier 2")
         ok = False
 
+    # ── Tier 2: Simplified + ASS subtitles ──
     if not ok:
         ok = _render_tier2(video_path, audio_path, music_path, ass_path,
                            reel_path, reel_dur, offset, luxury, landscape)
@@ -400,9 +403,16 @@ def render_reel(video_path, audio_path, subtitle_data, output_name,
         print(f"   ⚠️ Tier 2 rendered but FAILED validation → retrying Tier 3")
         ok = False
 
+    # ── Tier 3: drawtext subtitles (bypasses libass/fontconfig entirely) ──
     if not ok:
-        ok = _render_tier3(video_path, audio_path, reel_path, reel_dur,
-                           offset, landscape)
+        ok = _render_tier3_drawtext(video_path, audio_path, music_path,
+                                     subtitle_data, reel_path, reel_dur,
+                                     offset, landscape)
+
+    # ── Tier 4: Emergency — no subtitles, no music, just video+voice ──
+    if not ok:
+        ok = _render_tier4_emergency(video_path, audio_path, reel_path,
+                                      reel_dur, offset, landscape)
 
     if ok:
         size_mb = os.path.getsize(reel_path) / (1024 * 1024)
@@ -422,12 +432,8 @@ def _build_scale_filter(w, h, landscape):
     Portrait/square sources: scale width to 1080, crop height to 1920.
     """
     if landscape:
-        # Scale so height = 1920, width scales proportionally (e.g., 3413 for 16:9)
-        # Then center-crop to 1080x1920
         return f"scale=-2:{h}:flags=lanczos,crop={w}:{h}"
     else:
-        # Scale so width = 1080, height scales proportionally
-        # Then center-crop to 1080x1920
         return f"scale={w}:-2:flags=lanczos,crop={w}:{h}"
 
 
@@ -441,7 +447,6 @@ def _render_tier1(video, audio, music, ass, out, dur, offset,
     """
     Tier 1: Full effects — zoom, color grade, vignette, sharpen,
     ASS subtitles, background music.
-    Landscape-aware: uses different zoom strategy for 16:9 sources.
     """
     tier_label = "luxury cinematic" if luxury else "full effects"
     print(f"\n   Rendering (Tier 1: {tier_label})...")
@@ -450,34 +455,29 @@ def _render_tier1(video, audio, music, ass, out, dur, offset,
     fps = OUTPUT_FPS
     total_frames = int(dur * fps)
 
-    # Build zoom expression with in/out and subtle pan drift
     zoom_per_frame = zoom / total_frames
-    
-    # 70% chance to zoom in, 30% chance to zoom out
     zoom_dir = "in" if random.random() < 0.7 else "out"
     if zoom_dir == "in":
-        # Calculate absolute zoom based on frame number (on) to avoid accumulation bugs
         zexpr = f"1+(on*{zoom_per_frame})"
     else:
-        # start slightly zoomed in, and zoom out
         zexpr = f"(1+{zoom})-(on*{zoom_per_frame})"
 
-    # Subtle pan drift to make it feel less static
     pan_x = random.uniform(-1.0, 1.0)
     pan_y = random.uniform(-1.0, 1.0)
 
-    # Pre-scale strategy: perfectly crop ANY input to portrait (1.5x output resolution) to feed into zoompan cleanly.
     scale_factor = 1.5
-    sw, sh = int(w * scale_factor), int(h * scale_factor) # 1620, 2880
+    sw, sh = int(w * scale_factor), int(h * scale_factor)
 
     if landscape:
         pre_scale = f"scale=-2:{sh}:flags=lanczos,crop={sw}:{sh}"
     else:
         pre_scale = f"scale={sw}:-2:flags=lanczos,crop={sw}:{sh}"
 
-    # Clamped x/y expressions to prevent black edges when panning
     xexpr = f"min(max(iw/2-(iw/zoom/2)+(on*{pan_x}),0),iw-iw/zoom)"
     yexpr = f"min(max(ih/2-(ih/zoom/2)+(on*{pan_y}),0),ih-ih/zoom)"
+
+    # Build subtitle filter
+    sub_filter = _build_ass_filter(ass)
 
     vf = (
         f"{pre_scale},"
@@ -487,11 +487,9 @@ def _render_tier1(video, audio, music, ass, out, dur, offset,
         f"eq=contrast={contrast}:saturation={sat}:brightness={bright},"
         f"unsharp=5:5:{sharpen}:5:5:0,"
         f"vignette=PI/{vignette},"
-        f"{_build_ass_filter(ass)}"
+        f"{sub_filter}"
     )
 
-    # Audio: voice + background music ducking
-    # Randomize volume between 6% and 10% for subtle variation
     mv = round(random.uniform(0.06, 0.10), 3)
     af = (
         f"[1:a]aformat=sample_rates=44100:channel_layouts=stereo[voice];"
@@ -502,7 +500,6 @@ def _render_tier1(video, audio, music, ass, out, dur, offset,
         f"[voice][bgm]amix=inputs=2:duration=first:dropout_transition=0[aout]"
     )
 
-    # Combine video and audio filters explicitly
     fc = f"[0:v]{vf}[vout];{af}"
 
     cmd = [
@@ -526,7 +523,6 @@ def _render_tier1(video, audio, music, ass, out, dur, offset,
         print(f"   ✅ Tier 1 ({tier_label}): {sz:.1f} MB")
         return True
 
-    # Log FFmpeg error for debugging
     _log_ffmpeg_error(r, "Tier 1")
     print(f"   ⚠️ Tier 1 failed → trying Tier 2...")
     return False
@@ -534,16 +530,16 @@ def _render_tier1(video, audio, music, ass, out, dur, offset,
 
 def _render_tier2(video, audio, music, ass, out, dur, offset, luxury, landscape):
     """
-    Tier 2: Simplified — proper scaling + crop, subtitles, music.
-    No zoom or color grading effects. Safe fallback.
+    Tier 2: Simplified — proper scaling + crop, ASS subtitles, music.
+    No zoom or color grading effects.
     """
-    print(f"   Rendering (Tier 2: simplified)...")
+    print(f"   Rendering (Tier 2: simplified + ASS subs)...")
 
     w, h = OUTPUT_WIDTH, OUTPUT_HEIGHT
     scale = _build_scale_filter(w, h, landscape)
-    vf = f"{scale},fps={OUTPUT_FPS},{_build_ass_filter(ass)}"  # ass filter with fontsdir
+    sub_filter = _build_ass_filter(ass)
+    vf = f"{scale},fps={OUTPUT_FPS},{sub_filter}"
 
-    # Dynamic subtle music mix (6% to 10%)
     mv = round(random.uniform(0.06, 0.10), 3)
     af = (
         f"[1:a]aformat=sample_rates=44100:channel_layouts=stereo[voice];"
@@ -574,17 +570,71 @@ def _render_tier2(video, audio, music, ass, out, dur, offset, luxury, landscape)
         return True
 
     _log_ffmpeg_error(r, "Tier 2")
-    print(f"   ⚠️ Tier 2 failed → trying Tier 3...")
+    print(f"   ⚠️ Tier 2 failed → trying Tier 3 (drawtext)...")
     return False
 
 
-def _render_tier3(video, audio, out, dur, offset, landscape):
+def _render_tier3_drawtext(video, audio, music, subtitle_data, out, dur, offset, landscape):
     """
-    Tier 3: Emergency — no subtitles, no music.
-    Uses simple -vf (not -filter_complex) for maximum compatibility.
-    Just properly scaled video + voice audio.
+    Tier 3: Uses drawtext filter with fontfile= parameter.
+    Completely bypasses libass and fontconfig.
+    Renders subtitle text directly using FFmpeg's built-in drawtext.
     """
-    print(f"   Rendering (Tier 3: emergency, no subs)...")
+    print(f"   Rendering (Tier 3: drawtext, no libass)...")
+
+    w, h = OUTPUT_WIDTH, OUTPUT_HEIGHT
+    scale = _build_scale_filter(w, h, landscape)
+
+    # Build drawtext filter chain from subtitle data
+    dt_filter = _build_drawtext_filter(subtitle_data, dur)
+
+    if dt_filter:
+        vf = f"{scale},fps={OUTPUT_FPS},{dt_filter}"
+    else:
+        vf = f"{scale},fps={OUTPUT_FPS}"
+
+    mv = round(random.uniform(0.06, 0.10), 3)
+    af = (
+        f"[1:a]aformat=sample_rates=44100:channel_layouts=stereo[voice];"
+        f"[2:a]aformat=sample_rates=44100:channel_layouts=stereo,"
+        f"volume={mv},afade=t=in:d=1,afade=t=out:st={max(0, dur-2)}:d=2[bgm];"
+        f"[voice][bgm]amix=inputs=2:duration=first[aout]"
+    )
+
+    fc = f"[0:v]{vf}[vout];{af}"
+
+    cmd = [
+        FFMPEG_PATH, "-y",
+        "-stream_loop", "-1", "-ss", str(offset), "-i", video,
+        "-i", audio,
+        "-stream_loop", "-1", "-i", music,
+        "-filter_complex", fc,
+        "-map", "[vout]", "-map", "[aout]",
+        "-t", str(dur),
+        "-c:v", "libx264", "-preset", "fast", "-crf", "20",
+        "-c:a", "aac", "-b:a", AUDIO_BITRATE,
+        "-pix_fmt", "yuv420p", "-movflags", "+faststart", out,
+    ]
+
+    r = subprocess.run(cmd, capture_output=True, text=True)
+    if r.returncode == 0 and os.path.exists(out) and os.path.getsize(out) > 10_000:
+        sz = os.path.getsize(out) / (1024 * 1024)
+        print(f"   ✅ Tier 3 (drawtext): {sz:.1f} MB")
+        return True
+
+    _log_ffmpeg_error(r, "Tier 3")
+    print(f"   ⚠️ Tier 3 failed → trying Tier 4 (emergency)...")
+    return False
+
+
+def _render_tier4_emergency(video, audio, out, dur, offset, landscape):
+    """
+    Tier 4: ABSOLUTE LAST RESORT.
+    No subtitles, no music, no filter_complex.
+    Uses simple -vf and direct stream mapping.
+    This MUST succeed if FFmpeg and the inputs are valid.
+    """
+    print(f"   Rendering (Tier 4: emergency, no subs, no music)...")
 
     w, h = OUTPUT_WIDTH, OUTPUT_HEIGHT
     scale = _build_scale_filter(w, h, landscape)
@@ -606,11 +656,13 @@ def _render_tier3(video, audio, out, dur, offset, landscape):
     r = subprocess.run(cmd, capture_output=True, text=True)
     if r.returncode == 0 and os.path.exists(out) and os.path.getsize(out) > 10_000:
         sz = os.path.getsize(out) / (1024 * 1024)
-        print(f"   ✅ Tier 3 (emergency): {sz:.1f} MB")
+        print(f"   ✅ Tier 4 (emergency): {sz:.1f} MB")
         return True
 
-    _log_ffmpeg_error(r, "Tier 3")
-    print(f"   ❌ All render tiers failed!")
+    _log_ffmpeg_error(r, "Tier 4")
+    print(f"   ❌ ALL RENDER TIERS FAILED!")
+    print(f"   Video: {video} (exists={os.path.isfile(video)}, size={os.path.getsize(video) if os.path.isfile(video) else 0})")
+    print(f"   Audio: {audio} (exists={os.path.isfile(audio)}, size={os.path.getsize(audio) if os.path.isfile(audio) else 0})")
     return False
 
 
@@ -632,34 +684,103 @@ def _get_duration(path):
 
 
 def _esc(path):
-    """Escape path for FFmpeg filter strings."""
+    """Escape path for FFmpeg filter strings (no quotes needed)."""
     return path.replace("\\", "/").replace(":", "\\:").replace("'", "\\'")
 
 
 def _build_ass_filter(ass_path):
     """
-    Build the FFmpeg ASS subtitle filter string.
-    On Linux, includes fontsdir so libass can find fonts.
-
-    Returns the full filter expression like:
-      ass=path/to/file.ass:fontsdir=path/to/fonts
-    NO quotes — FFmpeg filter_complex handles escaping via backslashes.
+    Build FFmpeg ASS subtitle filter.
+    Uses fontsdir= to point libass at our fonts directory.
+    Returns: ass=/path/to/file.ass:fontsdir=/path/to/fonts
     """
-    escaped = _esc(ass_path)
-
-    # Verify ASS file actually exists
     if not os.path.isfile(ass_path):
         print(f"   ⚠️ ASS file not found: {ass_path}")
-        return f"null"  # passthrough — skip subtitles
+        return "null"
 
+    escaped = _esc(ass_path)
+    fonts_dir = _esc(font_config.FONTS_DIR)
+
+    filt = f"ass={escaped}:fontsdir={fonts_dir}"
+    print(f"   [ASS] {filt[:90]}...")
+    return filt
+
+
+def _build_drawtext_filter(subtitle_data, total_dur):
+    """
+    Build a drawtext filter chain from subtitle phrase data.
+    Uses fontfile= parameter — completely bypasses fontconfig/libass.
+    
+    This is the fontconfig-proof subtitle method.
+    """
+    # Find a font file to use with drawtext
+    font_file = _find_drawtext_font()
+    if not font_file:
+        print("   [DRAWTEXT] No font file found — skipping subtitles")
+        return None
+
+    escaped_font = _esc(font_file)
+
+    if not subtitle_data or not isinstance(subtitle_data, list):
+        return None
+
+    # Build chained drawtext filters for each phrase
+    parts = []
+    for i, phrase in enumerate(subtitle_data):
+        if not isinstance(phrase, dict):
+            continue
+        text = phrase.get("text", "").replace("'", "\\'").replace(":", "\\:")
+        start = phrase.get("start", 0)
+        end = phrase.get("end", start + 2)
+        if not text:
+            continue
+
+        # Enable/disable based on timestamp
+        enable_expr = f"between(t,{start:.2f},{end:.2f})"
+        dt = (
+            f"drawtext=fontfile={escaped_font}"
+            f":text='{text}'"
+            f":fontsize=52"
+            f":fontcolor=white"
+            f":borderw=3"
+            f":bordercolor=black"
+            f":x=(w-text_w)/2"
+            f":y=h*0.75"
+            f":enable='{enable_expr}'"
+        )
+        parts.append(dt)
+
+    if not parts:
+        return None
+
+    return ",".join(parts)
+
+
+def _find_drawtext_font():
+    """Find a .ttf font file for drawtext. Returns absolute path or None."""
+    # 1. Bundled font (always available if committed to repo)
+    bundled = font_config.BUNDLED_FONT
+    if os.path.isfile(bundled) and os.path.getsize(bundled) > 10000:
+        return bundled
+
+    # 2. Font from font_config init
     if font_config.FONT_PATH and os.path.isfile(font_config.FONT_PATH):
-        fonts_dir = _esc(os.path.dirname(font_config.FONT_PATH))
-        filt = f"ass={escaped}:fontsdir={fonts_dir}"
-        print(f"   [ASS] Filter: {filt[:80]}...")
-        return filt
+        return font_config.FONT_PATH
 
-    # No font path — try without fontsdir (relies on system fontconfig)
-    return f"ass={escaped}"
+    # 3. Any .ttf in our fonts dir
+    fonts_dir = font_config.FONTS_DIR
+    if os.path.isdir(fonts_dir):
+        for f in os.listdir(fonts_dir):
+            if f.lower().endswith(".ttf"):
+                return os.path.join(fonts_dir, f)
+
+    # 4. System fonts
+    for p in ["/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
+              "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"]:
+        if os.path.isfile(p):
+            return p
+
+    return None
 
 
 def _log_ffmpeg_error(result, tier_name):
@@ -667,15 +788,16 @@ def _log_ffmpeg_error(result, tier_name):
     if not result.stderr:
         print(f"   [{tier_name}] No stderr output")
         return
-    # Print all error/warning lines
+
     lines = result.stderr.strip().split("\n")
-    err_lines = [l for l in lines if any(k in l.lower() for k in ["error", "fail", "cannot", "invalid", "no such"])]
+    err_lines = [l for l in lines
+                 if any(k in l.lower() for k in ["error", "fail", "cannot", "invalid", "no such", "fontconfig"])]
+
     if err_lines:
-        print(f"   [{tier_name}] FFmpeg errors:")
-        for el in err_lines[:8]:
+        print(f"   [{tier_name}] FFmpeg errors ({len(err_lines)}):")
+        for el in err_lines[:10]:
             print(f"     {el.strip()}")
     else:
-        # Print last few lines of stderr as context
         print(f"   [{tier_name}] FFmpeg stderr (last 5 lines):")
         for el in lines[-5:]:
             if el.strip():
