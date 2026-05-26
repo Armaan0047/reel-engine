@@ -37,8 +37,13 @@ for cat in set(MUSIC_CATEGORIES_MAP.values()):
     os.makedirs(os.path.join(MUSIC_DIR, cat), exist_ok=True)
 
 # ─── FFmpeg ───────────────────────────────────────────────────────
-from imageio_ffmpeg import get_ffmpeg_exe
-FFMPEG_PATH = get_ffmpeg_exe()
+import shutil
+system_ffmpeg = shutil.which("ffmpeg")
+if system_ffmpeg:
+    FFMPEG_PATH = system_ffmpeg
+else:
+    from imageio_ffmpeg import get_ffmpeg_exe
+    FFMPEG_PATH = get_ffmpeg_exe()
 
 # ─── Video Rendering ─────────────────────────────────────────────
 OUTPUT_WIDTH  = 1080
