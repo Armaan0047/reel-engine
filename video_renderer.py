@@ -527,7 +527,7 @@ def _render_tier1(video, audio, music, ass, out, dur, offset,
 
     cmd = [
         FFMPEG_PATH, "-y",
-        "-stream_loop", "-1", "-ss", str(offset), "-i", video,
+        "-ss", str(offset), "-stream_loop", "-1", "-i", video,
         "-i", audio,
         "-stream_loop", "-1", "-i", music,
         "-filter_complex", fc,
@@ -571,7 +571,7 @@ def _render_tier2(video, audio, music, ass, out, dur, offset, luxury, landscape)
 
     cmd = [
         FFMPEG_PATH, "-y",
-        "-stream_loop", "-1", "-ss", str(offset), "-i", video,
+        "-ss", str(offset), "-stream_loop", "-1", "-i", video,
         "-i", audio,
         "-stream_loop", "-1", "-i", music,
         "-filter_complex", fc,
@@ -624,7 +624,7 @@ def _render_tier3_drawtext(video, audio, music, subtitle_data, out, dur, offset,
 
     cmd = [
         FFMPEG_PATH, "-y",
-        "-stream_loop", "-1", "-ss", str(offset), "-i", video,
+        "-stream_loop", "-1", "-i", video,
         "-i", audio,
         "-stream_loop", "-1", "-i", music,
         "-filter_complex", fc,
@@ -668,7 +668,7 @@ def _render_tier3b_drawtext_no_music(video, audio, subtitle_data, out, dur, offs
 
     cmd = [
         FFMPEG_PATH, "-y",
-        "-stream_loop", "-1", "-ss", str(offset), "-i", video,
+        "-stream_loop", "-1", "-i", video,
         "-i", audio,
         "-filter_complex", fc,
         "-map", "[vout]", "-map", "[aout]",
@@ -713,7 +713,7 @@ def _render_tier4_emergency(video, audio, out, dur, offset, landscape):
 
     cmd = [
         FFMPEG_PATH, "-y",
-        "-stream_loop", "-1", "-ss", str(offset), "-i", video,
+        "-stream_loop", "-1", "-i", video,
         "-i", audio,
         "-filter_complex", fc,
         "-map", "[vout]", "-map", "[aout]",
@@ -897,19 +897,5 @@ def _log_ffmpeg_error(result, tier_name):
     if not result.stderr:
         print(f"   [{tier_name}] No stderr output")
         return
-
-    lines = result.stderr.strip().split("\n")
-    keywords = ["error", "fail", "cannot", "invalid", "no such", "fontconfig",
-                "not found", "undefined", "unrecognized", "unknown"]
-    err_lines = [l for l in lines
-                 if any(k in l.lower() for k in keywords)]
-
-    if err_lines:
-        print(f"   [{tier_name}] FFmpeg errors ({len(err_lines)}):")
-        for el in err_lines[:10]:
-            print(f"     {el.strip()}")
-    else:
-        print(f"   [{tier_name}] FFmpeg stderr (last 5 lines):")
-        for el in lines[-5:]:
-            if el.strip():
-                print(f"     {el.strip()}")
+    print(f"   [{tier_name}] FULL FFmpeg STDERR:")
+    print(result.stderr)
