@@ -786,7 +786,7 @@ def _esc_text(text):
     """
     t = str(text)
     t = t.replace("\\", "\\\\")
-    t = t.replace("'", "\\'")        # FFmpeg-native quote escape inside single-quoted strings
+    t = t.replace("'", "’")        # Replace ASCII single quotes with cinematic Unicode curly quotes to prevent FFmpeg parser syntax break
     t = t.replace(":", "\\:")
     t = t.replace("%", "%%")         # % is special in drawtext
     t = t.replace(";", "")           # semicolons break filter_complex
@@ -852,7 +852,7 @@ def _build_drawtext_filter(subtitle_data, total_dur):
             f":bordercolor=black"
             f":x=(w-text_w)/2"
             f":y=h*3/4"
-            f":enable='between(t\\,{start:.2f}\\,{end:.2f})'"
+            f":enable='between(t,{start:.2f},{end:.2f})'"
         )
         parts.append(dt)
 
