@@ -258,7 +258,7 @@ def health():
 
     return {
         "status": "ok",
-        "version": "4.2-fixed-relative-paths",
+        "version": "4.2",
         "engine": "AI Reel Agent",
         "ffmpeg": ffmpeg_ok,
         "directories": {
@@ -269,33 +269,6 @@ def health():
         },
         "base_url": BASE_URL,
     }
-
-
-@app.get("/api/debug-render")
-async def debug_render(topic: str = "motivation"):
-    """Run a debug render synchronously and return all the printed output!"""
-    import io
-    import sys
-    
-    # Capture stdout and stderr
-    old_stdout = sys.stdout
-    old_stderr = sys.stderr
-    sys.stdout = buffer = io.StringIO()
-    sys.stderr = buffer
-    
-    try:
-        print("[DEBUG] Starting synchronous test render on production server...")
-        from main import generate_one_reel
-        reel_path = await generate_one_reel(force_topic=topic)
-        print(f"[DEBUG] Result: {reel_path}")
-    except Exception as e:
-        print(f"[DEBUG] CRITICAL EXCEPTION: {e}")
-        traceback.print_exc()
-    finally:
-        sys.stdout = old_stdout
-        sys.stderr = old_stderr
-        
-    return {"logs": buffer.getvalue()}
 
 
 if __name__ == "__main__":
