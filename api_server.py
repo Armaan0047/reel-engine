@@ -43,6 +43,18 @@ sys.stdout = Tee(log_path, "a")
 sys.stderr = sys.stdout
 print(f"[BOOT] Server telemetry logging initialized at: {log_path}")
 
+import shutil
+import subprocess
+print(f"[BOOT] shutil.which('ffmpeg') = {shutil.which('ffmpeg')}")
+print(f"[BOOT] PATH = {os.environ.get('PATH')}")
+print(f"[BOOT] /usr/bin/ffmpeg exists = {os.path.exists('/usr/bin/ffmpeg')}")
+print(f"[BOOT] /usr/local/bin/ffmpeg exists = {os.path.exists('/usr/local/bin/ffmpeg')}")
+try:
+    r = subprocess.run(["ffmpeg", "-version"], capture_output=True, text=True, timeout=5)
+    print(f"[BOOT] system ffmpeg run code = {r.returncode}")
+except Exception as e:
+    print(f"[BOOT] system ffmpeg run failed: {e}")
+
 # ─── Production URL config ────────────────────────────────────────
 # Set PUBLIC_BACKEND_URL on Railway; defaults to localhost for dev
 BASE_URL = os.getenv("PUBLIC_BACKEND_URL", "http://localhost:8000")
