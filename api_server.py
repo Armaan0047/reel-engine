@@ -23,6 +23,26 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 if PROJECT_ROOT not in sys.path:
     sys.path.insert(0, PROJECT_ROOT)
 
+# ─── Obs Telemetry / Tee Logger ──────────────────────────────────
+class Tee(object):
+    def __init__(self, name, mode):
+        self.file = open(name, mode, encoding="utf-8", buffering=1)
+        self.stdout = sys.stdout
+
+    def write(self, data):
+        self.file.write(data)
+        self.stdout.write(data)
+
+    def flush(self):
+        self.file.flush()
+        self.stdout.flush()
+
+log_path = os.path.join(PROJECT_ROOT, "temp", "server.log")
+os.makedirs(os.path.dirname(log_path), exist_ok=True)
+sys.stdout = Tee(log_path, "a")
+sys.stderr = sys.stdout
+print(f"[BOOT] Server telemetry logging initialized at: {log_path}")
+
 # ─── Production URL config ────────────────────────────────────────
 # Set PUBLIC_BACKEND_URL on Railway; defaults to localhost for dev
 BASE_URL = os.getenv("PUBLIC_BACKEND_URL", "http://localhost:8000")
@@ -269,6 +289,20 @@ def health():
         },
         "base_url": BASE_URL,
     }
+
+
+@app.get("/api/logs")
+def get_logs(lines: int = 500):
+    """Retrieve the last N lines of the active production server log."""
+    log_path = os.path.join(PROJECT_ROOT, "temp", "server.log")
+    if not os.path.isfile(log_path):
+        raise HTTPException(404, "Log file not found")
+    try:
+        with open(log_path, "r", encoding="utf-8", errors="replace") as f:
+            all_lines = f.readlines()
+        return {"logs": "".join(all_lines[-lines:])}
+    except Exception as e:
+        raise HTTPException(500, f"Error reading logs: {e}")
 
 
 if __name__ == "__main__":
